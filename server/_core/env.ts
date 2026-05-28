@@ -7,4 +7,10 @@ export const ENV = {
   isProduction: process.env.NODE_ENV === "production",
   forgeApiUrl: process.env.BUILT_IN_FORGE_API_URL ?? "",
   forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? "",
+  // Mora Care — integrações
+  botconversaWebhookUrl: process.env.BOTCONVERSA_WEBHOOK_URL ?? "",
+  googleSheetsWebhookUrl: process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "",
+  fbPixelId: process.env.FB_PIXEL_ID ?? "",
+  fbCapiToken: process.env.FB_CAPI_TOKEN ?? "",
+  siteUrl: process.env.SITE_URL ?? "https://www.moracare.com.br",
 };

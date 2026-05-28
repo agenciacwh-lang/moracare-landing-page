@@ -3,175 +3,333 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ═══════════════════════════════════════════════════════════
+   MORA CARE — Design System Premium
+   Paleta: Azul-marinho profundo + Dourado premium + Branco
+   ═══════════════════════════════════════════════════════════ */
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+
+  /* ── Cores semânticas (dark theme) ── */
+  --color-background:          oklch(0.09 0.018 255);
+  --color-foreground:          oklch(0.96 0.004 60);
+  --color-card:                oklch(0.12 0.016 255);
+  --color-card-foreground:     oklch(0.96 0.004 60);
+  --color-popover:             oklch(0.12 0.016 255);
+  --color-popover-foreground:  oklch(0.96 0.004 60);
+  --color-primary:             oklch(0.70 0.145 65);   /* Dourado vivo */
+  --color-primary-foreground:  oklch(0.09 0.018 255);
+  --color-secondary:           oklch(0.16 0.018 255);
+  --color-secondary-foreground:oklch(0.96 0.004 60);
+  --color-muted:               oklch(0.16 0.014 255);
+  --color-muted-foreground:    oklch(0.58 0.010 255);
+  --color-accent:              oklch(0.70 0.145 65);
+  --color-accent-foreground:   oklch(0.09 0.018 255);
+  --color-destructive:         oklch(0.577 0.245 27.325);
+  --color-border:              oklch(0.22 0.018 255);
+  --color-input:               oklch(0.22 0.018 255);
+  --color-ring:                oklch(0.70 0.145 65);
+
+  /* ── Tokens Mora Care ── */
+  --mc-navy:        oklch(0.09 0.018 255);
+  --mc-navy-mid:    oklch(0.13 0.020 255);
+  --mc-navy-light:  oklch(0.18 0.022 255);
+  --mc-border:      oklch(0.24 0.018 255);
+  --mc-gold:        oklch(0.72 0.148 67);
+  --mc-gold-light:  oklch(0.82 0.110 72);
+  --mc-gold-dark:   oklch(0.56 0.130 58);
+  --mc-gold-muted:  oklch(0.72 0.148 67 / 0.15);
+  --mc-text:        oklch(0.96 0.004 60);
+  --mc-text-muted:  oklch(0.62 0.010 255);
+  --mc-text-faint:  oklch(0.42 0.010 255);
 }
 
-:root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
-}
-
-.dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
-}
-
+/* ─── Base ─── */
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+  * { @apply border-border outline-ring/50; }
+
+  html { scroll-behavior: smooth; }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+    background-color: var(--mc-navy);
   }
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
+
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
   }
+
+  h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--mc-navy); }
+  ::-webkit-scrollbar-thumb { background: var(--mc-gold-muted); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--mc-gold-dark); }
 }
 
-@layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
-  .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
-    padding-right: 1rem;
-  }
+/* ─── Container ─── */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 1180px;
+}
+@media (min-width: 640px)  { .container { padding-inline: 1.75rem; } }
+@media (min-width: 1024px) { .container { padding-inline: 2.5rem; } }
 
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
+.flex { min-width: 0; min-height: 0; }
 
-  @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
-      padding-right: 1.5rem;
-    }
-  }
+/* ─── Gradientes de texto ─── */
+.text-gold {
+  color: var(--mc-gold);
+}
 
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem; /* 32px - desktop padding */
-      padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
-    }
-  }
+.text-gradient-gold {
+  background: linear-gradient(120deg, var(--mc-gold-dark) 0%, var(--mc-gold) 45%, var(--mc-gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.font-serif { font-family: var(--font-serif); }
+
+/* ─── Botão CTA principal ─── */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--mc-gold-dark) 0%, var(--mc-gold) 55%, var(--mc-gold-light) 100%);
+  color: var(--mc-navy);
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.25rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 180ms cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 24px oklch(0.72 0.148 67 / 0.30), 0 1px 0 oklch(0.82 0.110 72 / 0.4) inset;
+  position: relative;
+  overflow: hidden;
+}
+.btn-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, oklch(1 0 0 / 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.btn-cta:hover {
+  box-shadow: 0 8px 36px oklch(0.72 0.148 67 / 0.45);
+  transform: translateY(-2px);
+}
+.btn-cta:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 12px oklch(0.72 0.148 67 / 0.25);
+}
+.btn-cta:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── Botão outline ─── */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--mc-text);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--mc-border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.btn-outline:hover {
+  border-color: var(--mc-gold-dark);
+  color: var(--mc-gold);
+  background: var(--mc-gold-muted);
+}
+
+/* ─── Card de benefício ─── */
+.benefit-card {
+  background: var(--mc-navy-mid);
+  border: 1px solid var(--mc-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  transition: all 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.benefit-card:hover {
+  border-color: oklch(0.72 0.148 67 / 0.45);
+  box-shadow: 0 12px 40px oklch(0 0 0 / 0.35), 0 0 0 1px oklch(0.72 0.148 67 / 0.12);
+  transform: translateY(-4px);
+}
+
+/* ─── Input dark ─── */
+.input-dark {
+  background: oklch(0.15 0.018 255);
+  border: 1.5px solid var(--mc-border);
+  color: var(--mc-text);
+  border-radius: var(--radius-md);
+  padding: 0.8125rem 1rem;
+  font-size: 0.9375rem;
+  font-family: var(--font-sans);
+  width: 100%;
+  transition: border-color 180ms, box-shadow 180ms;
+  outline: none;
+  -webkit-appearance: none;
+}
+.input-dark::placeholder { color: var(--mc-text-faint); }
+.input-dark:focus {
+  border-color: oklch(0.72 0.148 67 / 0.65);
+  box-shadow: 0 0 0 3px oklch(0.72 0.148 67 / 0.12);
+}
+.input-dark:hover:not(:focus) { border-color: oklch(0.35 0.020 255); }
+
+/* Select dark */
+.select-dark {
+  background: oklch(0.15 0.018 255);
+  border: 1.5px solid var(--mc-border);
+  color: var(--mc-text);
+  border-radius: var(--radius-md);
+  padding: 0.8125rem 2.5rem 0.8125rem 1rem;
+  font-size: 0.9375rem;
+  font-family: var(--font-sans);
+  width: 100%;
+  transition: border-color 180ms, box-shadow 180ms;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a0a0b0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+.select-dark:focus {
+  border-color: oklch(0.72 0.148 67 / 0.65);
+  box-shadow: 0 0 0 3px oklch(0.72 0.148 67 / 0.12);
+}
+.select-dark option { background: oklch(0.15 0.018 255); color: var(--mc-text); }
+
+/* ─── Divisor dourado ─── */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--mc-gold) 40%, var(--mc-gold) 60%, transparent 100%);
+  border: none;
+  opacity: 0.35;
+}
+
+/* ─── Badge ─── */
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--mc-gold-muted);
+  border: 1px solid oklch(0.72 0.148 67 / 0.28);
+  border-radius: 9999px;
+  padding: 0.3rem 0.875rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mc-gold);
+}
+
+/* ─── Stat card ─── */
+.stat-card {
+  background: linear-gradient(145deg, var(--mc-navy-mid) 0%, var(--mc-navy-light) 100%);
+  border: 1px solid var(--mc-border);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 1.75rem;
+  text-align: center;
+  transition: border-color 200ms;
+}
+.stat-card:hover { border-color: oklch(0.72 0.148 67 / 0.35); }
+
+/* ─── Operadora card ─── */
+.operator-card {
+  background: oklch(0.97 0.004 60);
+  border: 1px solid oklch(0.88 0.008 60);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  min-height: 80px;
+}
+.operator-card:hover {
+  border-color: var(--mc-gold-dark);
+  box-shadow: 0 6px 20px oklch(0 0 0 / 0.12);
+  transform: translateY(-2px);
+}
+
+/* ─── Animações ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.65s cubic-bezier(0.23, 1, 0.32, 1) both; }
+.animate-fade-in    { animation: fadeIn 0.45s ease both; }
+
+.delay-100 { animation-delay: 0.10s; }
+.delay-150 { animation-delay: 0.15s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.50s; }
+.delay-600 { animation-delay: 0.60s; }
+
+/* Shimmer no botão CTA */
+.btn-cta-shimmer {
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    120deg,
+    var(--mc-gold-dark) 0%,
+    var(--mc-gold) 30%,
+    var(--mc-gold-light) 50%,
+    var(--mc-gold) 70%,
+    var(--mc-gold-dark) 100%
+  );
+  animation: shimmer 3s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up, .animate-fade-in { animation: none; opacity: 1; transform: none; }
+  .btn-cta-shimmer { animation: none; }
 }
