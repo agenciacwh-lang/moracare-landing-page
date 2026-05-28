@@ -9,12 +9,31 @@ const operators = [
 ];
 
 const hospitals = [
-  { name: "Hospital Marcelino Champagnat",    specialty: "Oncologia e cardiologia" },
-  { name: "Hospital Nossa Senhora das Graças", specialty: "Alta complexidade e UTI" },
-  { name: "Hospital Cajuru",                  specialty: "Pronto-socorro e cirurgias" },
-  { name: "Hospital Universitário Cajuru",    specialty: "Trauma e emergência" },
-  { name: "Hospital do Rocio",                specialty: "Ortopedia e reabilitação" },
-  { name: "Hospital Vita Batel",              specialty: "Medicina preventiva e check-up" },
+  {
+    name: "Hospital Cardiológico Costantini",
+    specialty: "Cardiologia e alta complexidade",
+    image: "/manus-storage/hos1_1b5c35f7.webp",
+  },
+  {
+    name: "Hospital Marcelino Champagnat",
+    specialty: "Oncologia e cirurgias de alta complexidade",
+    image: "/manus-storage/hos2_65eafc79.webp",
+  },
+  {
+    name: "Hospital Nossa Senhora das Graças",
+    specialty: "Alta complexidade e UTI",
+    image: "/manus-storage/hos3_ad3a8b30.webp",
+  },
+  {
+    name: "Hospital Pilar",
+    specialty: "Pronto-socorro e cirurgias gerais",
+    image: "/manus-storage/hos4_1027d413.webp",
+  },
+  {
+    name: "Hospital Santa Cruz",
+    specialty: "Atendimento 24h e emergências",
+    image: "/manus-storage/hos5_f1d246c8.webp",
+  },
 ];
 
 export default function OperatorsSection() {
@@ -56,7 +75,7 @@ export default function OperatorsSection() {
 
         {/* ── Hospitais de Referência ── */}
         <div className="text-center mb-10">
-          <div className="badge-blue inline-flex mb-4">
+          <div className="badge-blue inline-flex mb-4 gap-1.5">
             <Building2 className="w-3 h-3" />
             Rede Hospitalar
           </div>
@@ -69,35 +88,45 @@ export default function OperatorsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Grid fotográfico de hospitais */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {hospitals.map((h, i) => (
             <div
               key={h.name}
-              className="flex items-start gap-4 p-5 rounded-xl transition-all duration-200 animate-fade-in-up"
+              className="group relative overflow-hidden rounded-2xl animate-fade-in-up"
               style={{
-                background: "#ffffff",
-                border: "1.5px solid #e2e8f0",
-                boxShadow: "0 1px 4px rgba(74,135,185,0.06)",
-                animationDelay: `${i * 70}ms`,
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "#83d6d3";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(74,135,185,0.10)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "#e2e8f0";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 1px 4px rgba(74,135,185,0.06)";
+                boxShadow: "0 4px 20px rgba(30, 41, 59, 0.10)",
+                animationDelay: `${i * 80}ms`,
               }}
             >
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-sm"
-                style={{ background: "#edfafa", color: "#5bbfbb", border: "1px solid rgba(131,214,211,0.4)" }}
-              >
-                ✚
-              </div>
-              <div>
-                <p className="font-semibold text-sm" style={{ color: "#1e293b" }}>{h.name}</p>
-                <p className="text-xs mt-0.5 font-medium" style={{ color: "#475569" }}>{h.specialty}</p>
+              {/* Imagem com efeito de zoom no hover */}
+              <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
+                <img
+                  src={h.image}
+                  alt={h.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  style={{ display: "block" }}
+                />
+                {/* Gradiente escuro sobreposto na parte inferior */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(to top, rgba(15,23,42,0.75) 0%, rgba(15,23,42,0.20) 45%, transparent 100%)",
+                  }}
+                />
+                {/* Legenda sobreposta */}
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="font-sans font-bold text-sm leading-tight" style={{ color: "#ffffff" }}>
+                    {h.name}
+                  </p>
+                  <p
+                    className="text-xs mt-0.5 font-medium"
+                    style={{ color: "#83d6d3" }}
+                  >
+                    {h.specialty}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

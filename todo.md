@@ -72,3 +72,11 @@
 - [x] Revisar BenefitsSection: títulos e descrições dos cards
 - [x] Revisar AuthoritySection: textos sobre fundo azul (manter branco + #e2f0fb para melhor contraste)
 - [x] Revisar Footer: garantir legibilidade dos links e informações de contato
+
+## Galeria de Hospitais com Fotos Reais
+- [x] Upload das 5 imagens reais dos hospitais para o storage do projeto
+- [x] Substituir lista de ícones por grid fotográfico premium (1 col mobile / 2 tablet / 3 desktop)
+- [x] Cantos arredondados (rounded-2xl) e sombra elegante (shadow)
+- [x] Efeito hover: zoom suave na imagem (scale-105, transition 500ms ease-out)
+- [x] Legenda sobreposta na parte inferior com gradiente escuro para leitura perfeita
+- [x] Nome do hospital em branco + especialidade em teal sobre o gradiente
