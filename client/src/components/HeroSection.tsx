@@ -149,7 +149,7 @@ export default function HeroSection() {
             </h1>
 
             {/* Subtítulo */}
-            <p className="text-lg md:text-xl leading-relaxed mb-8 max-w-xl" style={{ color: "rgba(255,255,255,0.85)" }}>
+            <p className="text-lg md:text-xl leading-relaxed mb-8 max-w-xl" style={{ color: "#e2f0fb" }}>
               Consultoria gratuita e imparcial para você economizar tempo e
               dinheiro. Encontramos o plano perfeito para o seu orçamento nas
               maiores operadoras do mercado.
@@ -160,7 +160,7 @@ export default function HeroSection() {
               {trustItems.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2">
                   <Icon className="w-4 h-4 flex-shrink-0" style={{ color: "#abba3b" }} />
-                  <span className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)" }}>{label}</span>
+                  <span className="text-sm font-semibold" style={{ color: "#e2f0fb" }}>{label}</span>
                 </div>
               ))}
             </div>
@@ -191,10 +191,10 @@ export default function HeroSection() {
                 {!submitted ? (
                   <>
                     <div className="mb-7">
-                      <h2 className="font-serif text-2xl font-bold mb-1.5" style={{ color: "#1e4f7a" }}>
+                      <p className="font-serif text-2xl font-bold mb-1.5" style={{ color: "#1e293b" }}>
                         Solicite sua cotação gratuita
-                      </h2>
-                      <p className="text-sm" style={{ color: "#64748b" }}>
+                      </p>
+                      <p className="text-sm" style={{ color: "#475569" }}>
                         Preencha abaixo e receba as melhores opções em até 2h.
                       </p>
                     </div>
@@ -202,7 +202,7 @@ export default function HeroSection() {
                     <form onSubmit={handleSubmit} noValidate className="space-y-4">
                       {/* Nome */}
                       <div>
-                        <label htmlFor="nome" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "#4a87b9" }}>
+                        <label htmlFor="nome" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "#2d6a9f" }}>
                           Nome completo
                         </label>
                         <input
@@ -216,7 +216,7 @@ export default function HeroSection() {
 
                       {/* Telefone */}
                       <div>
-                        <label htmlFor="telefone" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "#4a87b9" }}>
+                        <label htmlFor="telefone" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "#2d6a9f" }}>
                           WhatsApp / Telefone
                         </label>
                         <input
@@ -230,7 +230,7 @@ export default function HeroSection() {
 
                       {/* E-mail */}
                       <div>
-                        <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "#4a87b9" }}>
+                        <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "#2d6a9f" }}>
                           E-mail
                         </label>
                         <input
@@ -244,7 +244,7 @@ export default function HeroSection() {
 
                       {/* Tipo de Plano */}
                       <div>
-                        <label htmlFor="tipoPlano" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "#4a87b9" }}>
+                        <label htmlFor="tipoPlano" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "#2d6a9f" }}>
                           Tipo de plano
                         </label>
                         <select
@@ -287,7 +287,7 @@ export default function HeroSection() {
                         )}
                       </button>
 
-                      <p className="text-center text-xs mt-2" style={{ color: "#94a3b8" }}>
+                      <p className="text-center text-xs mt-2" style={{ color: "#64748b" }}>
                         🔒 Seus dados estão protegidos. Sem spam, sem compromisso.
                       </p>
                     </form>
@@ -304,7 +304,7 @@ export default function HeroSection() {
                     <h3 className="font-serif text-2xl font-bold mb-3" style={{ color: "#1e4f7a" }}>
                       Cotação solicitada!
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#64748b" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>
                       Nossa equipe entrará em contato em até 2 horas.
                       <br />
                       Obrigado por confiar na <strong style={{ color: "#4a87b9" }}>Mora Care</strong>.
@@ -322,7 +322,7 @@ export default function HeroSection() {
                     key={i}
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold border-2"
                     style={{
-                      background: i % 2 === 0 ? "#4a87b9" : "#83d6d3",
+                      background: i % 2 === 0 ? "#2d6a9f" : "#1e4f7a",
                       borderColor: "#ffffff",
                       color: "#ffffff",
                     }}
@@ -331,7 +331,7 @@ export default function HeroSection() {
                   </div>
                 ))}
               </div>
-              <p className="text-xs" style={{ color: "rgba(255,255,255,0.75)" }}>
+              <p className="text-xs" style={{ color: "#c8e4f5" }}>
                 <strong style={{ color: "#ffffff" }}>+500 famílias</strong> já economizaram com a Mora Care
               </p>
             </div>

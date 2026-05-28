@@ -76,7 +76,7 @@ export default function AuthoritySection() {
             Muito além de corretores, somos seus{" "}
             <span style={{ color: "#83d6d3" }}>consultores de saúde</span>
           </h2>
-          <p className="text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.80)" }}>
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: "#e2f0fb" }}>
             A Mora Care atua de forma independente para garantir que você faça a
             escolha certa, com transparência e segurança. Esqueça a burocracia:
             nosso compromisso é entregar a solução mais eficiente para o seu
@@ -103,7 +103,7 @@ export default function AuthoritySection() {
               >
                 {s.value}
               </p>
-              <p className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
+              <p className="text-sm font-medium" style={{ color: "#c8e4f5" }}>
                 {s.label}
               </p>
             </div>
@@ -138,10 +138,10 @@ export default function AuthoritySection() {
               >
                 <Icon className="w-5 h-5" style={{ color: "#83d6d3" }} />
               </div>
-              <h3 className="font-sans text-base font-semibold mb-2" style={{ color: "#ffffff" }}>
+              <h3 className="font-sans text-base font-bold mb-2" style={{ color: "#ffffff" }}>
                 {title}
               </h3>
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.70)" }}>
+              <p className="text-sm leading-relaxed" style={{ color: "#c8e4f5" }}>
                 {description}
               </p>
             </div>
@@ -153,7 +153,7 @@ export default function AuthoritySection() {
           <a href="#formulario" className="btn-cta inline-flex">
             ✓ QUERO MINHA COTAÇÃO GRATUITA
           </a>
-          <p className="text-xs mt-3" style={{ color: "rgba(255,255,255,0.55)" }}>
+          <p className="text-xs mt-3" style={{ color: "#c8e4f5" }}>
             Sem compromisso · Resposta em até 2 horas
           </p>
         </div>

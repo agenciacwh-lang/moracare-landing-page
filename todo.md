@@ -58,3 +58,17 @@
 - [x] Refatorar OperatorsSection: cards brancos, ícones teal, bordas azul claro
 - [x] Refatorar AuthoritySection: fundo azul gradiente, texto branco, ícones teal, stats verdes
 - [x] Refatorar Footer: fundo azul escuro, texto branco, links teal
+
+## Correções de Contraste e Legibilidade
+- [x] Adicionar cor grafite #1e293b como variável CSS padrão para textos sobre fundo claro
+- [x] Atualizar .btn-cta: texto grafite #1e293b (bold) sobre verde #abba3b
+- [x] Garantir que texto branco só apareça sobre azul profundo (#1e4f7a / #2d6a9f / #4a87b9)
+- [x] Nunca usar texto branco sobre teal #83d6d3 — usar grafite nesses casos
+- [x] Corrigir parágrafos e descrições sobre fundo branco/cinza claro para grafite
+- [x] Corrigir títulos: font-weight bold/extrabold, cor azul ou grafite sobre fundos claros
+- [x] Revisar HeroSection: subtítulo, trust items e micro-prova social
+- [x] Revisar formulário: labels, placeholders e textos de apoio
+- [x] Revisar OperatorsSection: nomes de operadoras, especialidades de hospitais
+- [x] Revisar BenefitsSection: títulos e descrições dos cards
+- [x] Revisar AuthoritySection: textos sobre fundo azul (manter branco + #e2f0fb para melhor contraste)
+- [x] Revisar Footer: garantir legibilidade dos links e informações de contato

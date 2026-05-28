@@ -25,11 +25,11 @@ export default function OperatorsSection() {
         {/* ── Cabeçalho operadoras ── */}
         <div className="text-center mb-12">
           <div className="badge-blue inline-flex mb-4">Parceiros Credenciados</div>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4" style={{ color: "#1e4f7a" }}>
+          <h2 className="font-serif text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#1e293b" }}>
             As maiores operadoras do Brasil,{" "}
             <span style={{ color: "#4a87b9" }}>na sua mão</span>
           </h2>
-          <p className="text-base max-w-xl mx-auto" style={{ color: "#64748b" }}>
+          <p className="text-base max-w-xl mx-auto" style={{ color: "#475569" }}>
             Trabalhamos com as principais operadoras do mercado para garantir
             que você tenha acesso às melhores coberturas e redes de atendimento.
           </p>
@@ -45,8 +45,8 @@ export default function OperatorsSection() {
               >
                 {op.abbr}
               </div>
-              <p className="font-semibold text-sm" style={{ color: "#1e4f7a" }}>{op.name}</p>
-              <p className="text-xs" style={{ color: "#64748b" }}>{op.desc}</p>
+              <p className="font-semibold text-sm" style={{ color: "#1e293b" }}>{op.name}</p>
+              <p className="text-xs" style={{ color: "#475569" }}>{op.desc}</p>
               <div className="w-8 h-0.5 rounded-full" style={{ background: "#83d6d3" }} />
             </div>
           ))}
@@ -60,11 +60,11 @@ export default function OperatorsSection() {
             <Building2 className="w-3 h-3" />
             Rede Hospitalar
           </div>
-          <h3 className="font-serif text-2xl md:text-3xl font-bold mb-3" style={{ color: "#1e4f7a" }}>
+          <h3 className="font-serif text-2xl md:text-3xl font-extrabold mb-3" style={{ color: "#1e293b" }}>
             Hospitais de referência{" "}
             <span style={{ color: "#4a87b9" }}>em Curitiba e Região</span>
           </h3>
-          <p className="text-sm max-w-lg mx-auto" style={{ color: "#64748b" }}>
+          <p className="text-sm max-w-lg mx-auto" style={{ color: "#475569" }}>
             Sua cobertura inclui acesso às melhores unidades hospitalares da região.
           </p>
         </div>
@@ -96,8 +96,8 @@ export default function OperatorsSection() {
                 ✚
               </div>
               <div>
-                <p className="font-semibold text-sm" style={{ color: "#1e4f7a" }}>{h.name}</p>
-                <p className="text-xs mt-0.5" style={{ color: "#83d6d3" }}>{h.specialty}</p>
+                <p className="font-semibold text-sm" style={{ color: "#1e293b" }}>{h.name}</p>
+                <p className="text-xs mt-0.5 font-medium" style={{ color: "#475569" }}>{h.specialty}</p>
               </div>
             </div>
           ))}
@@ -108,7 +108,7 @@ export default function OperatorsSection() {
           <a href="#formulario" className="btn-cta inline-flex">
             ✓ SOLICITAR COTAÇÃO AGORA
           </a>
-          <p className="text-xs mt-3" style={{ color: "#94a3b8" }}>
+          <p className="text-xs mt-3" style={{ color: "#64748b" }}>
             Consultoria gratuita — sem compromisso
           </p>
         </div>

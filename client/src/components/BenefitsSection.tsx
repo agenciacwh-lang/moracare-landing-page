@@ -72,31 +72,29 @@ export default function BenefitsSection() {
     <section
       id="beneficios"
       className="py-20 md:py-28"
-      style={{ background: "oklch(0.10 0.015 260)" }}
+      style={{ background: "#ffffff" }}
     >
       <div className="container">
         {/* Cabeçalho da seção */}
-        <div className="text-center mb-14 md:mb-18">
-          <div className="inline-flex items-center gap-2 bg-[oklch(0.62_0.13_55/0.12)] border border-[oklch(0.62_0.13_55/0.25)] rounded-full px-4 py-1.5 mb-5">
-            <span
-              className="text-xs font-semibold tracking-widest uppercase"
-              style={{ color: "var(--color-gold)" }}
-            >
-              Por que escolher a Mora Care
-            </span>
+        <div className="text-center mb-14">
+          <div className="badge-blue inline-flex mb-4">
+            Por que escolher a Mora Care
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl xl:text-5xl font-bold text-white mb-5">
+          <h2
+            className="font-serif text-3xl md:text-4xl xl:text-5xl font-extrabold mb-5"
+            style={{ color: "#1e293b" }}
+          >
             Diferenciais que fazem{" "}
-            <span className="text-gradient-gold">toda a diferença</span>
+            <span style={{ color: "#4a87b9" }}>toda a diferença</span>
           </h2>
-          <p className="text-white/55 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: "#334155" }}>
             Combinamos expertise técnica com genuíno cuidado humano para
             entregar uma experiência que transforma a vida de quem atendemos e
             de suas famílias.
           </p>
         </div>
 
-        <hr className="divider-gold mb-14 md:mb-18" />
+        <hr className="divider-teal mb-14" />
 
         {/* Grid de benefícios */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -108,25 +106,19 @@ export default function BenefitsSection() {
                 className="benefit-card animate-fade-in-up"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
-                {/* Ícone */}
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                  style={{
-                    background: "oklch(0.62 0.13 55 / 0.12)",
-                    border: "1px solid oklch(0.62 0.13 55 / 0.2)",
-                  }}
-                >
-                  <Icon
-                    className="w-5 h-5"
-                    style={{ color: "var(--color-gold)" }}
-                  />
+                {/* Ícone teal */}
+                <div className="icon-teal w-12 h-12 rounded-xl mb-5">
+                  <Icon className="w-5 h-5" style={{ color: "#5bbfbb" }} />
                 </div>
 
                 {/* Conteúdo */}
-                <h3 className="text-white font-semibold text-lg mb-3 leading-tight">
+                <h3
+                  className="font-sans font-bold text-lg mb-3 leading-tight"
+                  style={{ color: "#1e293b" }}
+                >
                   {benefit.title}
                 </h3>
-                <p className="text-white/55 text-sm leading-relaxed">
+                <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>
                   {benefit.description}
                 </p>
               </div>

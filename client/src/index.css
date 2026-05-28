@@ -43,14 +43,16 @@
   --mc-gray-500:     #64748b;
   --mc-gray-700:     #334155;
   --mc-gray-900:     #0f172a;
+  --mc-graphite:     #1e293b;
+  --mc-graphite-mid: #334155;
 
   /* ── Tokens semânticos (light theme) ── */
   --color-background:           #ffffff;
-  --color-foreground:           #1e3a5f;
+  --color-foreground:           #1e293b;
   --color-card:                 #ffffff;
-  --color-card-foreground:      #1e3a5f;
+  --color-card-foreground:      #1e293b;
   --color-popover:              #ffffff;
-  --color-popover-foreground:   #1e3a5f;
+  --color-popover-foreground:   #1e293b;
   --color-primary:              #4a87b9;
   --color-primary-foreground:   #ffffff;
   --color-secondary:            #83d6d3;
@@ -58,7 +60,7 @@
   --color-muted:                #f1f5f9;
   --color-muted-foreground:     #64748b;
   --color-accent:               #abba3b;
-  --color-accent-foreground:    #ffffff;
+  --color-accent-foreground:    #1e293b;
   --color-destructive:          #ef4444;
   --color-border:               #e2e8f0;
   --color-input:                #e2e8f0;
@@ -74,22 +76,22 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "kern" 1, "liga" 1;
     background-color: var(--mc-white);
-    color: var(--mc-gray-700);
+    color: var(--mc-graphite);
   }
 
   h1, h2, h3 {
     font-family: var(--font-serif);
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.025em;
     line-height: 1.12;
-    color: var(--mc-blue-deeper);
+    color: var(--mc-graphite);
   }
 
   h4, h5, h6 {
     font-family: var(--font-sans);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.01em;
-    color: var(--mc-blue-dark);
+    color: var(--mc-graphite);
   }
 
   ::-webkit-scrollbar { width: 5px; }
@@ -130,7 +132,7 @@
   justify-content: center;
   gap: 0.5rem;
   background: linear-gradient(135deg, var(--mc-green-dark) 0%, var(--mc-green) 55%, var(--mc-green-light) 100%);
-  color: #ffffff;
+  color: #1e293b;
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: 0.8125rem;
@@ -221,7 +223,7 @@
   outline: none;
   -webkit-appearance: none;
 }
-.input-clean::placeholder { color: var(--mc-gray-300); }
+.input-clean::placeholder { color: var(--mc-gray-500); }
 .input-clean:focus {
   border-color: var(--mc-blue);
   box-shadow: 0 0 0 3px rgba(74, 135, 185, 0.12);
