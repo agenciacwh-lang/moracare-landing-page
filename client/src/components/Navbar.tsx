@@ -14,19 +14,16 @@ export default function Navbar() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled
-          ? "oklch(0.09 0.018 255 / 0.96)"
-          : "oklch(0.09 0.018 255 / 0.70)",
-        backdropFilter: "blur(16px)",
-        borderBottom: scrolled ? "1px solid oklch(0.24 0.018 255)" : "1px solid transparent",
+        background: scrolled ? "#2d6a9f" : "#4a87b9",
+        boxShadow: scrolled ? "0 2px 20px rgba(30, 79, 122, 0.25)" : "none",
       }}
     >
       <div className="container">
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-1.5">
-            <span className="font-serif text-xl md:text-2xl font-bold text-white tracking-tight">
-              Mora <span className="text-gradient-gold">Care</span>
+            <span className="font-serif text-xl md:text-2xl font-bold tracking-tight" style={{ color: "#ffffff" }}>
+              Mora <span style={{ color: "#83d6d3" }}>Care</span>
             </span>
           </a>
 
@@ -41,23 +38,23 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className="text-sm font-medium transition-colors duration-200"
-                style={{ color: "oklch(0.72 0.010 255)" }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--mc-gold)")}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "oklch(0.72 0.010 255)")}
+                style={{ color: "rgba(255,255,255,0.85)" }}
+                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#83d6d3")}
+                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.85)")}
               >
                 {item.label}
               </a>
             ))}
           </div>
 
-          {/* CTA + Telefone */}
+          {/* Telefone + CTA */}
           <div className="flex items-center gap-3">
             <a
               href="tel:+5541991916738"
               className="hidden md:flex items-center gap-1.5 text-sm font-medium transition-colors duration-200"
-              style={{ color: "oklch(0.72 0.010 255)" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--mc-gold)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.010 255)")}
+              style={{ color: "rgba(255,255,255,0.85)" }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#83d6d3")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)")}
             >
               <Phone className="w-3.5 h-3.5" />
               (41) 99191-6738

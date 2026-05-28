@@ -48,3 +48,13 @@
 - [x] Garantir sessionId para rastreamento entre Passo 1 e Passo 2
 - [x] Atualizar testes Vitest para nova arquitetura sem DB (14/14 passando)
 - [x] Verificar fluxo completo: formulário → Sheets → BotConversa → notificação
+
+## Identidade Visual Definitiva — Paleta Mora Care
+- [x] Reescrever index.css com tokens da paleta definitiva (#4a87b9, #83d6d3, #abba3b, #ffffff)
+- [x] Atualizar tema para light (fundo branco) e ajustar variáveis semânticas
+- [x] Refatorar Navbar: azul primário no fundo/logo, CTA verde
+- [x] Refatorar HeroSection: fundo gradiente azul, títulos brancos, CTA verde
+- [x] Refatorar formulário de captura: inputs limpos, botão CTA verde
+- [x] Refatorar OperatorsSection: cards brancos, ícones teal, bordas azul claro
+- [x] Refatorar AuthoritySection: fundo azul gradiente, texto branco, ícones teal, stats verdes
+- [x] Refatorar Footer: fundo azul escuro, texto branco, links teal
