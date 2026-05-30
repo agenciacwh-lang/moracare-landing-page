@@ -109,3 +109,7 @@
 - [x] Atualizar link Facebook para https://www.facebook.com/KPLEMCorretora
 - [x] Testar build Vite sem erros
 - [x] Push para GitHub e checkpoint
+
+## Atualização de Fotos dos Hospitais (v3)
+- [x] Upload das 5 novas fotos dos hospitais enviadas pelo cliente
+- [x] Atualizar URLs das imagens em OperatorsSection.tsx com os novos paths do storage
