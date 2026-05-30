@@ -12,27 +12,27 @@ const hospitals = [
   {
     name: "Hospital Cardiológico Costantini",
     specialty: "Cardiologia e alta complexidade",
-    image: "/manus-storage/hos1_1b5c35f7.webp",
+    image: "/manus-storage/hos1_8ca4733f.webp",
   },
   {
     name: "Hospital Marcelino Champagnat",
     specialty: "Oncologia e cirurgias de alta complexidade",
-    image: "/manus-storage/hos2_65eafc79.webp",
+    image: "/manus-storage/hos2_0785c3d4.webp",
   },
   {
     name: "Hospital Nossa Senhora das Graças",
     specialty: "Alta complexidade e UTI",
-    image: "/manus-storage/hos3_ad3a8b30.webp",
+    image: "/manus-storage/hos3_a6001b4c.webp",
   },
   {
     name: "Hospital Pilar",
     specialty: "Pronto-socorro e cirurgias gerais",
-    image: "/manus-storage/hos4_1027d413.webp",
+    image: "/manus-storage/hos4_25bbd0df.webp",
   },
   {
     name: "Hospital Santa Cruz",
     specialty: "Atendimento 24h e emergências",
-    image: "/manus-storage/hos5_f1d246c8.webp",
+    image: "/manus-storage/hos5_c5de3f38.webp",
   },
 ];
 

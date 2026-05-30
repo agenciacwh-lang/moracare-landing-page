@@ -1,9 +1,8 @@
-import { Instagram, Linkedin, Facebook, Mail, Phone, MapPin, Clock, Heart } from "lucide-react";
+import { Instagram, Facebook, Mail, Phone, MapPin, Clock, Heart } from "lucide-react";
 
 const socialLinks = [
-  { icon: Instagram, label: "Instagram", href: "https://instagram.com/moracare" },
-  { icon: Linkedin,  label: "LinkedIn",  href: "https://linkedin.com/company/moracare" },
-  { icon: Facebook,  label: "Facebook",  href: "https://facebook.com/moracare" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/moracare.saude/" },
+  { icon: Facebook,  label: "Facebook",  href: "https://www.facebook.com/KPLEMCorretora" },
 ];
 
 const quickLinks = [
@@ -114,7 +113,9 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:+5541991916738"
+                  href="https://wa.me/5541991916738?text=Ol%C3%A1%2C+vim+pelo+o+site+quero+mais+informa%C3%A7%C3%B5es%21"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-start gap-3 text-sm transition-colors duration-200"
                   style={{ color: "rgba(255,255,255,0.65)" }}
                   onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#83d6d3")}

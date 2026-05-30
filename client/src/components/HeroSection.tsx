@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from "react";
+import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
-import { CheckCircle, ArrowRight, ShieldCheck, Clock, Star } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, Star } from "lucide-react";
 
 type TipoPlano = "Individual" | "Familiar" | "PJ" | "MEI";
 
@@ -42,7 +43,7 @@ function validate(data: FormData): FormErrors {
 const trustItems = [
   { icon: ShieldCheck, label: "Consultoria 100% gratuita" },
   { icon: Star, label: "Maiores operadoras do Brasil" },
-  { icon: Clock, label: "Resposta em até 2 horas" },
+  { icon: Clock, label: "Resposta em até 5 min" },
 ];
 
 export default function HeroSection() {
@@ -51,6 +52,7 @@ export default function HeroSection() {
 
   const [form, setForm] = useState<FormData>({ nome: "", telefone: "", email: "", tipoPlano: "" });
   const [errors, setErrors] = useState<FormErrors>({});
+  const [, navigate] = useLocation();
   const [submitted, setSubmitted] = useState(false);
 
   // Armazena o payload do Passo 1 para reutilizar no Passo 2 (stateless — sem cache no servidor)
@@ -59,8 +61,8 @@ export default function HeroSection() {
   } | null>(null);
 
   const completeLead = trpc.leads.complete.useMutation({
-    onSuccess: () => setSubmitted(true),
-    onError: (err: unknown) => { console.error("[Complete] Erro:", err); setSubmitted(true); },
+    onSuccess: () => navigate("/confirmado"),
+    onError: (err: unknown) => { console.error("[Complete] Erro:", err); navigate("/confirmado"); },
   });
 
   const submitInitial = trpc.leads.submitInitial.useMutation({
@@ -203,7 +205,7 @@ export default function HeroSection() {
                         Solicite sua cotação gratuita
                       </p>
                       <p className="text-sm" style={{ color: "#475569" }}>
-                        Preencha abaixo e receba as melhores opções em até 2h.
+                        Preencha abaixo e receba as melhores opções em até 5 minutos.
                       </p>
                     </div>
 
@@ -300,25 +302,7 @@ export default function HeroSection() {
                       </p>
                     </form>
                   </>
-                ) : (
-                  /* Estado de sucesso */
-                  <div className="text-center py-10 animate-fade-in">
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-                      style={{ background: "#f4f7d6", border: "2px solid rgba(171,186,59,0.35)" }}
-                    >
-                      <CheckCircle className="w-8 h-8" style={{ color: "#abba3b" }} />
-                    </div>
-                    <h3 className="font-serif text-2xl font-bold mb-3" style={{ color: "#1e4f7a" }}>
-                      Cotação solicitada!
-                    </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>
-                      Nossa equipe entrará em contato em até 2 horas.
-                      <br />
-                      Obrigado por confiar na <strong style={{ color: "#4a87b9" }}>Mora Care</strong>.
-                    </p>
-                  </div>
-                )}
+                ) : null}
               </div>
             </div>
 

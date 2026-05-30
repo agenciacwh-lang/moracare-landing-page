@@ -96,3 +96,17 @@
 - [x] Remover Vite middleware do entrypoint de produção (não estava no api/index.ts)
 - [x] Testar build local (dist/public gerado) e rodar testes (17/17 passando)
 - [x] Push para GitHub com arquitetura serverless estrita (commit b76fb2b)
+
+## Correções Pós-Deploy (v2)
+
+- [ ] Corrigir webhookService.ts: garantir await correto nas chamadas fetch (bug crítico)
+- [ ] Adicionar logs console.log de sucesso/erro nos disparos de webhook
+- [ ] Corrigir imagens dos hospitais: re-upload via manus-upload-file --webdev
+- [ ] Criar página de Obrigado (/confirmado) com mensagem de sucesso e CTA WhatsApp
+- [ ] Redirecionar formulário para /confirmado após sucesso
+- [ ] Substituir '2h' / '2 horas' por '5 min' / '5 minutos' em toda a landing page
+- [ ] Tornar todos os telefones links clicáveis para WhatsApp
+- [ ] Atualizar link Instagram para https://www.instagram.com/moracare.saude/
+- [ ] Atualizar link Facebook para https://www.facebook.com/KPLEMCorretora
+- [ ] Testar build Vite sem erros
+- [ ] Push para GitHub e checkpoint

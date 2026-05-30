@@ -50,7 +50,9 @@ export default function Navbar() {
           {/* Telefone + CTA */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:+5541991916738"
+              href="https://wa.me/5541991916738?text=Ol%C3%A1%2C+vim+pelo+o+site+quero+mais+informa%C3%A7%C3%B5es%21"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:flex items-center gap-1.5 text-sm font-medium transition-colors duration-200"
               style={{ color: "rgba(255,255,255,0.85)" }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#83d6d3")}
