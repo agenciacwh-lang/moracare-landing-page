@@ -90,9 +90,9 @@
 - [x] Fazer push para GitHub com as adaptações Vercel (commit f04f516)
 
 ## Refatoração Vercel Serverless Estrita
-- [ ] Reescrever api/index.ts: Express puro, sem listen(), contexto tRPC correto
-- [ ] Reescrever vercel.json exato: @vercel/node + @vercel/static-build
-- [ ] Ajustar package.json: build = "vite build" gerando estáticos no diretório correto
-- [ ] Remover Vite middleware do entrypoint de produção
-- [ ] Testar build local e rodar testes
-- [ ] Push para GitHub com arquitetura serverless estrita
+- [x] Reescrever api/index.ts: Express puro, sem listen(), contexto tRPC correto (já estava correto)
+- [x] Reescrever vercel.json exato: @vercel/node + @vercel/static-build
+- [x] Ajustar package.json: build = "vite build" gerando estáticos no diretório correto
+- [x] Remover Vite middleware do entrypoint de produção (não estava no api/index.ts)
+- [x] Testar build local (dist/public gerado) e rodar testes (17/17 passando)
+- [x] Push para GitHub com arquitetura serverless estrita (commit b76fb2b)
