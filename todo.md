@@ -87,4 +87,4 @@
 - [x] Criar api/index.ts exportando o app Express sem listen() em produção
 - [x] Garantir que o build do Vite gera os estáticos em dist/public (confirmado)
 - [x] Adicionar script build:vercel ao package.json (apenas vite build, sem esbuild)
-- [ ] Fazer push para GitHub com as adaptações Vercel
+- [x] Fazer push para GitHub com as adaptações Vercel (commit f04f516)
