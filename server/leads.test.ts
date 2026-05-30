@@ -1,7 +1,8 @@
 /**
  * leads.test.ts
  * Testes unitários para as procedures de leads da Mora Care.
- * Arquitetura: sem banco de dados — webhooks para Sheets e BotConversa.
+ * Arquitetura stateless: complete recebe todos os dados do lead (sem cache em memória).
+ * Compatível com Vercel Serverless.
  */
 
 import { describe, expect, it, vi, beforeEach } from "vitest";
@@ -109,53 +110,63 @@ describe("leads.submitInitial", () => {
   });
 });
 
-// ── Testes: complete ──────────────────────────────────────────────────────────
+// ── Testes: complete (stateless) ──────────────────────────────────────────────
 
 describe("leads.complete", () => {
   beforeEach(() => vi.clearAllMocks());
 
-  it("deve retornar sucesso ao completar sessão existente", async () => {
+  it("deve retornar sucesso ao completar com todos os dados do lead", async () => {
     const caller = appRouter.createCaller(createPublicContext());
-
-    // Passo 1: registra no cache
-    await caller.leads.submitInitial(validLead);
-
-    // Passo 2: conclui
-    const result = await caller.leads.complete({ sessionId: validLead.sessionId });
+    const result = await caller.leads.complete(validLead);
     expect(result.success).toBe(true);
-  });
-
-  it("deve retornar sucesso mesmo com sessionId desconhecido (sessão expirada)", async () => {
-    const caller = appRouter.createCaller(createPublicContext());
-    const result = await caller.leads.complete({ sessionId: "mc_sessao_inexistente" });
-    expect(result.success).toBe(true);
-  });
-
-  it("deve rejeitar sessionId vazio", async () => {
-    const caller = appRouter.createCaller(createPublicContext());
-    await expect(
-      caller.leads.complete({ sessionId: "" })
-    ).rejects.toThrow();
+    expect(result.dispatched).toEqual({ sheets: true, botconversa: true });
   });
 
   it("deve enviar status 'Lead Concluiu' no Passo 2", async () => {
     const { sendLeadToAll } = await import("./webhookService");
     const caller = appRouter.createCaller(createPublicContext());
 
-    // Passo 1
-    await caller.leads.submitInitial(validLead);
-    vi.clearAllMocks();
-
-    // Passo 2
-    await caller.leads.complete({ sessionId: validLead.sessionId });
+    await caller.leads.complete(validLead);
 
     expect(sendLeadToAll).toHaveBeenCalledWith(
       expect.objectContaining({ status: "Lead Concluiu" })
     );
   });
+
+  it("deve rejeitar e-mail inválido no Passo 2", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(
+      caller.leads.complete({ ...validLead, email: "invalido" })
+    ).rejects.toThrow();
+  });
+
+  it("deve rejeitar sessionId vazio no Passo 2", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(
+      caller.leads.complete({ ...validLead, sessionId: "" })
+    ).rejects.toThrow();
+  });
+
+  it("deve funcionar com tipoPlano MEI", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    const result = await caller.leads.complete({ ...validLead, tipoPlano: "MEI" });
+    expect(result.success).toBe(true);
+  });
+
+  it("deve funcionar com tipoPlano PJ", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    const result = await caller.leads.complete({ ...validLead, tipoPlano: "PJ" });
+    expect(result.success).toBe(true);
+  });
+
+  it("deve funcionar com tipoPlano Individual", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    const result = await caller.leads.complete({ ...validLead, tipoPlano: "Individual" });
+    expect(result.success).toBe(true);
+  });
 });
 
-// ── Testes: webhookService ────────────────────────────────────────────────────
+// ── Testes: webhookService — validação de URLs ────────────────────────────────
 
 describe("webhookService — validação de URLs", () => {
   it("GOOGLE_SHEETS_WEBHOOK_URL deve estar configurado", () => {

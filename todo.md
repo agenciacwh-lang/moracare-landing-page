@@ -80,3 +80,11 @@
 - [x] Efeito hover: zoom suave na imagem (scale-105, transition 500ms ease-out)
 - [x] Legenda sobreposta na parte inferior com gradiente escuro para leitura perfeita
 - [x] Nome do hospital em branco + especialidade em teal sobre o gradiente
+
+## Adaptação para Deploy na Vercel (Serverless)
+- [x] Analisar entrypoint atual do Express (server/_core/index.ts)
+- [x] Criar vercel.json com builds e rewrites (frontend estático + API serverless)
+- [x] Criar api/index.ts exportando o app Express sem listen() em produção
+- [x] Garantir que o build do Vite gera os estáticos em dist/public (confirmado)
+- [x] Adicionar script build:vercel ao package.json (apenas vite build, sem esbuild)
+- [ ] Fazer push para GitHub com as adaptações Vercel

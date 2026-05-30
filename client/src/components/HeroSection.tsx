@@ -53,6 +53,11 @@ export default function HeroSection() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
 
+  // Armazena o payload do Passo 1 para reutilizar no Passo 2 (stateless — sem cache no servidor)
+  const step1Payload = useRef<{
+    sessionId: string; nome: string; email: string; telefone: string; tipoPlano: TipoPlano;
+  } | null>(null);
+
   const completeLead = trpc.leads.complete.useMutation({
     onSuccess: () => setSubmitted(true),
     onError: (err: unknown) => { console.error("[Complete] Erro:", err); setSubmitted(true); },
@@ -61,11 +66,11 @@ export default function HeroSection() {
   const submitInitial = trpc.leads.submitInitial.useMutation({
     onSuccess: () => {
       tiroDisparado.current = true;
-      completeLead.mutate({ sessionId: sessionId.current });
+      if (step1Payload.current) completeLead.mutate(step1Payload.current);
     },
     onError: (err: unknown) => {
       console.error("[Tiro Imediato] Erro:", err);
-      completeLead.mutate({ sessionId: sessionId.current });
+      if (step1Payload.current) completeLead.mutate(step1Payload.current);
     },
   });
 
@@ -90,10 +95,13 @@ export default function HeroSection() {
       tipoPlano: form.tipoPlano as TipoPlano,
     };
 
+    // Salva o payload para reutilizar no Passo 2 (arquitetura stateless)
+    step1Payload.current = payload;
+
     if (!tiroDisparado.current) {
       submitInitial.mutate(payload);
     } else {
-      completeLead.mutate({ sessionId: sessionId.current });
+      completeLead.mutate(payload);
     }
   };
 
