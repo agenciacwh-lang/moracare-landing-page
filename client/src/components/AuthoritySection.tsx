@@ -43,7 +43,7 @@ const stats = [
   { value: "500+", label: "Clientes atendidos" },
   { value: "5",    label: "Operadoras parceiras" },
   { value: "98%",  label: "Satisfação" },
-  { value: "2h",   label: "Tempo de resposta" },
+  { value: "5 min",   label: "Tempo de resposta" },
 ];
 
 export default function AuthoritySection() {
@@ -154,7 +154,7 @@ export default function AuthoritySection() {
             ✓ QUERO MINHA COTAÇÃO GRATUITA
           </a>
           <p className="text-xs mt-3" style={{ color: "#c8e4f5" }}>
-            Sem compromisso · Resposta em até 2 horas
+            Sem compromisso · Resposta em até 5 minutos
           </p>
         </div>
       </div>

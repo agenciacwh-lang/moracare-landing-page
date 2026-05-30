@@ -98,15 +98,14 @@
 - [x] Push para GitHub com arquitetura serverless estrita (commit b76fb2b)
 
 ## Correções Pós-Deploy (v2)
-
-- [ ] Corrigir webhookService.ts: garantir await correto nas chamadas fetch (bug crítico)
-- [ ] Adicionar logs console.log de sucesso/erro nos disparos de webhook
-- [ ] Corrigir imagens dos hospitais: re-upload via manus-upload-file --webdev
-- [ ] Criar página de Obrigado (/confirmado) com mensagem de sucesso e CTA WhatsApp
-- [ ] Redirecionar formulário para /confirmado após sucesso
-- [ ] Substituir '2h' / '2 horas' por '5 min' / '5 minutos' em toda a landing page
-- [ ] Tornar todos os telefones links clicáveis para WhatsApp
-- [ ] Atualizar link Instagram para https://www.instagram.com/moracare.saude/
-- [ ] Atualizar link Facebook para https://www.facebook.com/KPLEMCorretora
-- [ ] Testar build Vite sem erros
-- [ ] Push para GitHub e checkpoint
+- [x] Corrigir webhookService.ts: garantir await correto nas chamadas fetch (bug crítico)
+- [x] Adicionar logs console.log de sucesso/erro nos disparos de webhook
+- [x] Corrigir imagens dos hospitais: re-upload via manus-upload-file --webdev
+- [x] Criar página de Obrigado (/confirmado) com mensagem de sucesso e CTA WhatsApp
+- [x] Redirecionar formulário para /confirmado após sucesso
+- [x] Substituir '2h' / '2 horas' por '5 min' / '5 minutos' em toda a landing page
+- [x] Tornar todos os telefones links clicáveis para WhatsApp
+- [x] Atualizar link Instagram para https://www.instagram.com/moracare.saude/
+- [x] Atualizar link Facebook para https://www.facebook.com/KPLEMCorretora
+- [x] Testar build Vite sem erros
+- [x] Push para GitHub e checkpoint
