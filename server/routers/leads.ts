@@ -43,6 +43,8 @@ export const leadsRouter = router({
   submitInitial: publicProcedure
     .input(leadBaseSchema)
     .mutation(async ({ input }) => {
+      console.log(`[leads.submitInitial] ▶ sessionId=${input.sessionId} nome=${input.nome}`);
+
       const payload: LeadPayload = {
         sessionId: input.sessionId,
         nome: input.nome,
@@ -55,15 +57,28 @@ export const leadsRouter = router({
         fonte: "Mora Care Landing Page",
       };
 
-      // Dispara para Sheets e BotConversa em paralelo
-      const results = await sendLeadToAll(payload);
+      let results = { sheets: false, botconversa: false };
 
-      // Notifica o proprietário
-      await notifyOwner({
-        title: "🔔 Novo lead (Incompleto) — Mora Care",
-        content: `**Nome:** ${input.nome}\n**Telefone:** ${input.telefone}\n**E-mail:** ${input.email}\n**Tipo de Plano:** ${input.tipoPlano}\n**Status:** Lead Incompleto\n**Data:** ${nowBR()}\n\n_Sheets: ${results.sheets ? "✅" : "❌"} | BotConversa: ${results.botconversa ? "✅" : "❌"}_`,
-      });
+      try {
+        // BLOQUEANTE: aguarda ambos os webhooks antes de retornar
+        results = await sendLeadToAll(payload);
+        console.log(`[leads.submitInitial] ✅ Webhooks concluídos — Sheets: ${results.sheets} | BotConversa: ${results.botconversa}`);
+      } catch (webhookErr) {
+        // Webhook falhou mas NÃO quebramos a rota — apenas logamos
+        console.error("[leads.submitInitial] ❌ Erro nos webhooks:", webhookErr instanceof Error ? webhookErr.message : String(webhookErr));
+      }
 
+      // Notifica o proprietário (não-crítico — falha silenciosa)
+      try {
+        await notifyOwner({
+          title: "🔔 Novo lead (Incompleto) — Mora Care",
+          content: `**Nome:** ${input.nome}\n**Telefone:** ${input.telefone}\n**E-mail:** ${input.email}\n**Tipo de Plano:** ${input.tipoPlano}\n**Status:** Lead Incompleto\n**Data:** ${nowBR()}\n\n_Sheets: ${results.sheets ? "✅" : "❌"} | BotConversa: ${results.botconversa ? "✅" : "❌"}_`,
+        });
+      } catch (notifyErr) {
+        console.warn("[leads.submitInitial] Notificação ao owner falhou:", notifyErr instanceof Error ? notifyErr.message : String(notifyErr));
+      }
+
+      // return APÓS todos os awaits — crítico no serverless
       return { success: true, dispatched: results };
     }),
 
@@ -76,6 +91,8 @@ export const leadsRouter = router({
   complete: publicProcedure
     .input(leadBaseSchema)
     .mutation(async ({ input }) => {
+      console.log(`[leads.complete] ▶ sessionId=${input.sessionId} nome=${input.nome}`);
+
       const payload: LeadPayload = {
         sessionId: input.sessionId,
         nome: input.nome,
@@ -88,15 +105,28 @@ export const leadsRouter = router({
         fonte: "Mora Care Landing Page",
       };
 
-      // Dispara para Sheets e BotConversa em paralelo
-      const results = await sendLeadToAll(payload);
+      let results = { sheets: false, botconversa: false };
 
-      // Notifica o proprietário
-      await notifyOwner({
-        title: "✅ Lead CONCLUÍDO — Mora Care",
-        content: `**Nome:** ${input.nome}\n**Telefone:** ${input.telefone}\n**E-mail:** ${input.email}\n**Tipo de Plano:** ${input.tipoPlano}\n**Status:** Lead Concluiu\n**Data:** ${nowBR()}\n\n_Sheets: ${results.sheets ? "✅" : "❌"} | BotConversa: ${results.botconversa ? "✅" : "❌"}_`,
-      });
+      try {
+        // BLOQUEANTE: aguarda ambos os webhooks antes de retornar
+        results = await sendLeadToAll(payload);
+        console.log(`[leads.complete] ✅ Webhooks concluídos — Sheets: ${results.sheets} | BotConversa: ${results.botconversa}`);
+      } catch (webhookErr) {
+        // Webhook falhou mas NÃO quebramos a rota — apenas logamos
+        console.error("[leads.complete] ❌ Erro nos webhooks:", webhookErr instanceof Error ? webhookErr.message : String(webhookErr));
+      }
 
+      // Notifica o proprietário (não-crítico — falha silenciosa)
+      try {
+        await notifyOwner({
+          title: "✅ Lead CONCLUÍDO — Mora Care",
+          content: `**Nome:** ${input.nome}\n**Telefone:** ${input.telefone}\n**E-mail:** ${input.email}\n**Tipo de Plano:** ${input.tipoPlano}\n**Status:** Lead Concluiu\n**Data:** ${nowBR()}\n\n_Sheets: ${results.sheets ? "✅" : "❌"} | BotConversa: ${results.botconversa ? "✅" : "❌"}_`,
+        });
+      } catch (notifyErr) {
+        console.warn("[leads.complete] Notificação ao owner falhou:", notifyErr instanceof Error ? notifyErr.message : String(notifyErr));
+      }
+
+      // return APÓS todos os awaits — crítico no serverless
       return { success: true, dispatched: results };
     }),
 });
