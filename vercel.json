@@ -1,8 +1,21 @@
 {
   "version": 2,
   "installCommand": "pnpm install --no-frozen-lockfile",
+  "buildCommand": "pnpm run build",
   "builds": [
-    { "src": "api/index.ts", "use": "@vercel/node" },
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node",
+      "config": {
+        "bundle": true,
+        "maxDuration": 30,
+        "includeFiles": [
+          "server/**",
+          "shared/**",
+          "drizzle/**"
+        ]
+      }
+    },
     { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist/public" } }
   ],
   "rewrites": [
