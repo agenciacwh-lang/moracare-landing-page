@@ -41,7 +41,7 @@ const pillars = [
 
 const stats = [
   { value: "500+", label: "Clientes atendidos" },
-  { value: "5",    label: "Operadoras parceiras" },
+  { value: "Todas", label: "Operadoras do mercado" },
   { value: "98%",  label: "Satisfação" },
   { value: "5 min",   label: "Tempo de resposta" },
 ];

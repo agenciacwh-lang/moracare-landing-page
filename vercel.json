@@ -4,22 +4,16 @@
   "buildCommand": "pnpm run build",
   "builds": [
     {
-      "src": "api/index.ts",
+      "src": "dist/api/index.js",
       "use": "@vercel/node",
       "config": {
-        "bundle": true,
-        "maxDuration": 30,
-        "includeFiles": [
-          "server/**",
-          "shared/**",
-          "drizzle/**"
-        ]
+        "maxDuration": 30
       }
     },
     { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist/public" } }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/index.ts" },
+    { "source": "/api/(.*)", "destination": "/dist/api/index.js" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -6,6 +6,7 @@ const operators = [
   { name: "Amil",           abbr: "AMI", desc: "Cobertura nacional ampla" },
   { name: "SulAmérica",     abbr: "SUL", desc: "Tradição e solidez" },
   { name: "Bradesco Saúde", abbr: "BRA", desc: "Referência em qualidade" },
+  { name: "E muito mais...", abbr: "+",  desc: "Trabalhamos com todas as operadoras do mercado" },
 ];
 
 const hospitals = [
@@ -55,20 +56,27 @@ export default function OperatorsSection() {
         </div>
 
         {/* Grid de operadoras */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
-          {operators.map((op, i) => (
-            <div key={op.name} className="benefit-card flex flex-col items-center text-center gap-3 py-7">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+          {operators.map((op, i) => {
+            const isExtra = op.abbr === "+";
+            return (
               <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-sm tracking-wider"
-                style={{ background: i % 2 === 0 ? "#4a87b9" : "#2d6a9f", color: "#ffffff" }}
+                key={op.name}
+                className="benefit-card flex flex-col items-center text-center gap-3 py-7"
+                style={isExtra ? { borderColor: "#83d6d3", background: "linear-gradient(135deg,#f0f9ff,#e0f2fe)" } : {}}
               >
-                {op.abbr}
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-lg tracking-wider"
+                  style={{ background: isExtra ? "#83d6d3" : (i % 2 === 0 ? "#4a87b9" : "#2d6a9f"), color: isExtra ? "#1e4d6b" : "#ffffff" }}
+                >
+                  {op.abbr}
+                </div>
+                <p className="font-semibold text-sm" style={{ color: isExtra ? "#1e4d6b" : "#1e293b" }}>{op.name}</p>
+                <p className="text-xs" style={{ color: "#475569" }}>{op.desc}</p>
+                <div className="w-8 h-0.5 rounded-full" style={{ background: "#83d6d3" }} />
               </div>
-              <p className="font-semibold text-sm" style={{ color: "#1e293b" }}>{op.name}</p>
-              <p className="text-xs" style={{ color: "#475569" }}>{op.desc}</p>
-              <div className="w-8 h-0.5 rounded-full" style={{ background: "#83d6d3" }} />
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <hr className="divider-teal mb-16" />

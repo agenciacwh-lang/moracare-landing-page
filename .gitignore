@@ -6,6 +6,9 @@
 dist/
 build/
 *.dist
+# Exception: pre-compiled Vercel serverless bundle must be committed
+!dist/api/
+!dist/api/index.js
 
 # Environment variables
 .env

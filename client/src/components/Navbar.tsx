@@ -22,9 +22,12 @@ export default function Navbar() {
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-1.5">
-            <span className="font-serif text-xl md:text-2xl font-bold tracking-tight" style={{ color: "#ffffff" }}>
-              Mora <span style={{ color: "#83d6d3" }}>Care</span>
-            </span>
+            <img
+              src="/manus-storage/moracare-logo_10b7e0ec.jpeg"
+              alt="MoraCare Saúde e Benefícios"
+              className="h-10 md:h-12 w-auto object-contain rounded"
+              style={{ filter: "brightness(1.05) drop-shadow(0 1px 3px rgba(0,0,0,0.20))" }}
+            />
           </a>
 
           {/* Links desktop */}
