@@ -23,7 +23,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-1.5">
             <img
-              src="/manus-storage/moracare-logo_10b7e0ec.jpeg"
+              src="/moracare-logo.jpeg"
               alt="MoraCare Saúde e Benefícios"
               className="h-10 md:h-12 w-auto object-contain rounded"
               style={{ filter: "brightness(1.05) drop-shadow(0 1px 3px rgba(0,0,0,0.20))" }}
