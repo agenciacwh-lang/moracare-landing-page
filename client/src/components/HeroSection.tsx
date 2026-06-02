@@ -61,8 +61,8 @@ export default function HeroSection() {
   } | null>(null);
 
   const completeLead = trpc.leads.complete.useMutation({
-    onSuccess: () => navigate("/confirmado"),
-    onError: (err: unknown) => { console.error("[Complete] Erro:", err); navigate("/confirmado"); },
+    onSuccess: () => navigate("/obrigado"),
+    onError: (err: unknown) => { console.error("[Complete] Erro:", err); navigate("/obrigado"); },
   });
 
   const submitInitial = trpc.leads.submitInitial.useMutation({
