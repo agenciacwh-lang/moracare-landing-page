@@ -36,50 +36,27 @@ function nowBR(): string {
 
 export const leadsRouter = router({
   /**
-   * PASSO 1 — TIRO IMEDIATO
-   * Disparado em background ao clicar no botão CTA.
-   * Envia status "Lead Incompleto" para Sheets e BotConversa.
+   * PASSO 1 — TIRO IMEDIATO (SEM WEBHOOK)
+   * Disparado ao clicar no botão CTA.
+   * NÃO envia para Sheets nem BotConversa — evita duplicidade.
+   * Os webhooks são disparados SOMENTE em complete (Passo 2).
    */
   submitInitial: publicProcedure
     .input(leadBaseSchema)
     .mutation(async ({ input }) => {
-      console.log(`[leads.submitInitial] ▶ sessionId=${input.sessionId} nome=${input.nome}`);
-
-      const payload: LeadPayload = {
-        sessionId: input.sessionId,
-        nome: input.nome,
-        email: input.email,
-        telefone: input.telefone,
-        tipoPlano: input.tipoPlano,
-        status: "Lead Incompleto",
-        origem: input.origem,
-        timestamp: new Date().toISOString(),
-        fonte: "Mora Care Landing Page",
-      };
-
-      let results = { sheets: false, botconversa: false };
-
-      try {
-        // BLOQUEANTE: aguarda ambos os webhooks antes de retornar
-        results = await sendLeadToAll(payload);
-        console.log(`[leads.submitInitial] ✅ Webhooks concluídos — Sheets: ${results.sheets} | BotConversa: ${results.botconversa}`);
-      } catch (webhookErr) {
-        // Webhook falhou mas NÃO quebramos a rota — apenas logamos
-        console.error("[leads.submitInitial] ❌ Erro nos webhooks:", webhookErr instanceof Error ? webhookErr.message : String(webhookErr));
-      }
+      console.log(`[leads.submitInitial] ▶ sessionId=${input.sessionId} nome=${input.nome} — sem webhook (evitar duplicidade)`);
 
       // Notifica o proprietário (não-crítico — falha silenciosa)
       try {
         await notifyOwner({
-          title: "🔔 Novo lead (Incompleto) — Mora Care",
-          content: `**Nome:** ${input.nome}\n**Telefone:** ${input.telefone}\n**E-mail:** ${input.email}\n**Tipo de Plano:** ${input.tipoPlano}\n**Status:** Lead Incompleto\n**Data:** ${nowBR()}\n\n_Sheets: ${results.sheets ? "✅" : "❌"} | BotConversa: ${results.botconversa ? "✅" : "❌"}_`,
+          title: "🔔 Novo lead iniciado — Mora Care",
+          content: `**Nome:** ${input.nome}\n**Telefone:** ${input.telefone}\n**E-mail:** ${input.email}\n**Tipo de Plano:** ${input.tipoPlano}\n**Status:** Iniciando preenchimento\n**Data:** ${nowBR()}\n\n_Aguardando confirmação em /complete..._`,
         });
       } catch (notifyErr) {
         console.warn("[leads.submitInitial] Notificação ao owner falhou:", notifyErr instanceof Error ? notifyErr.message : String(notifyErr));
       }
 
-      // return APÓS todos os awaits — crítico no serverless
-      return { success: true, dispatched: results };
+      return { success: true };
     }),
 
   /**
