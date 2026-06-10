@@ -1,33 +1,16 @@
 import { useEffect } from "react";
 import { CheckCircle, MessageCircle, Phone, Clock, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
+import { trackWhatsAppClick } from "@/lib/gtag-tracking";
 
 const WA_LINK =
   "https://wa.me/5541991916738?text=Ol%C3%A1%2C+vim+pelo+o+site+quero+mais+informa%C3%A7%C3%B5es%21";
 
-/** Dispara conversão de clique no WhatsApp (Google Ads) */
-const handleWhatsAppClick = () => {
-  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
-    (window as any).gtag("event", "conversion", {
-      send_to: "AW-18008620159/7b2QCPb1ybccEP_4lotD",
-    });
-  }
-};
-
 export default function ThankYou() {
   useEffect(() => {
-    // Conversão de Lead — Google Ads (page load)
-    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
-      (window as any).gtag("event", "conversion", {
-        send_to: "AW-18008620159/PHnvCN3244ccEP_4lotD",
-        value: 1.0,
-        currency: "BRL",
-      });
-    }
-    // Evento Lead — Facebook Pixel
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      (window as any).fbq("track", "Lead");
-    }
+    // Nota: A conversão de lead é disparada APENAS após sucesso do formulário
+    // em HeroSection.tsx (quando completeLead.mutate é chamado com sucesso).
+    // Não disparamos aqui para evitar duplicação.
   }, []);
 
   return (
@@ -49,7 +32,7 @@ export default function ThankYou() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={handleWhatsAppClick}
+          onClick={trackWhatsAppClick}
           className="hidden sm:flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
         >
           <Phone size={16} />
@@ -109,7 +92,7 @@ export default function ThankYou() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={handleWhatsAppClick}
+              onClick={trackWhatsAppClick}
               className="flex items-center justify-center gap-3 w-full rounded-xl py-4 px-6 text-base font-extrabold uppercase tracking-wide transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg mb-4"
               style={{
                 background: "#25D366",

@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { ArrowRight, ShieldCheck, Clock, Star } from "lucide-react";
+import { trackLeadSuccess } from "@/lib/gtag-tracking";
 
 type TipoPlano = "Individual" | "Familiar" | "PJ" | "MEI";
 
@@ -61,7 +62,11 @@ export default function HeroSection() {
   } | null>(null);
 
   const completeLead = trpc.leads.complete.useMutation({
-    onSuccess: () => navigate("/obrigado"),
+    onSuccess: () => {
+      // Dispara conversão APENAS após sucesso comprovado
+      trackLeadSuccess();
+      navigate("/obrigado");
+    },
     onError: (err: unknown) => { console.error("[Complete] Erro:", err); navigate("/obrigado"); },
   });
 
@@ -72,6 +77,7 @@ export default function HeroSection() {
     },
     onError: (err: unknown) => {
       console.error("[Tiro Imediato] Erro:", err);
+      // Mesmo em erro, tenta completar para não deixar lead pendente
       if (step1Payload.current) completeLead.mutate(step1Payload.current);
     },
   });
@@ -86,6 +92,7 @@ export default function HeroSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const validationErrors = validate(form);
+    // Se há erros de validação, não dispara conversão
     if (Object.keys(validationErrors).length > 0) { setErrors(validationErrors); return; }
     if (!form.tipoPlano) return;
 
@@ -99,6 +106,7 @@ export default function HeroSection() {
 
     // Salva o payload para reutilizar no Passo 2 (arquitetura stateless)
     step1Payload.current = payload;
+    setSubmitted(true); // Marca como enviado para feedback visual
 
     if (!tiroDisparado.current) {
       submitInitial.mutate(payload);

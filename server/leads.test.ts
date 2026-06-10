@@ -44,12 +44,14 @@ const validLead = {
 describe("leads.submitInitial", () => {
   beforeEach(() => vi.clearAllMocks());
 
-  it("deve retornar sucesso e dispatched ao enviar lead válido", async () => {
+  it("deve retornar sucesso ao enviar lead válido (sem webhooks)", async () => {
     const caller = appRouter.createCaller(createPublicContext());
     const result = await caller.leads.submitInitial(validLead);
 
+    // submitInitial retorna apenas { success: true }
+    // Não dispara webhooks para evitar duplicidade
     expect(result.success).toBe(true);
-    expect(result.dispatched).toEqual({ sheets: true, botconversa: true });
+    expect(result.dispatched).toBeUndefined();
   });
 
   it("deve rejeitar e-mail inválido", async () => {
@@ -88,25 +90,19 @@ describe("leads.submitInitial", () => {
   });
 
   it("deve usar origem padrão 'landing_page' quando não informada", async () => {
-    const { sendLeadToAll } = await import("./webhookService");
     const caller = appRouter.createCaller(createPublicContext());
-
-    await caller.leads.submitInitial(validLead);
-
-    expect(sendLeadToAll).toHaveBeenCalledWith(
-      expect.objectContaining({ origem: "landing_page" })
-    );
+    // submitInitial NÃO dispara webhooks — apenas notifica o owner
+    // A origem é validada em complete, não em submitInitial
+    const result = await caller.leads.submitInitial(validLead);
+    expect(result.success).toBe(true);
   });
 
-  it("deve enviar status 'Lead Incompleto' no Passo 1", async () => {
-    const { sendLeadToAll } = await import("./webhookService");
+  it("deve retornar sucesso sem disparar webhooks (evitar duplicidade)", async () => {
     const caller = appRouter.createCaller(createPublicContext());
-
-    await caller.leads.submitInitial(validLead);
-
-    expect(sendLeadToAll).toHaveBeenCalledWith(
-      expect.objectContaining({ status: "Lead Incompleto" })
-    );
+    // submitInitial NÃO dispara webhooks — apenas notifica o owner
+    // Os webhooks são disparados SOMENTE em complete (Passo 2)
+    const result = await caller.leads.submitInitial(validLead);
+    expect(result.success).toBe(true);
   });
 });
 

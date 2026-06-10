@@ -113,3 +113,15 @@
 ## Atualização de Fotos dos Hospitais (v3)
 - [x] Upload das 5 novas fotos dos hospitais enviadas pelo cliente
 - [x] Atualizar URLs das imagens em OperatorsSection.tsx com os novos paths do storage
+
+## Auditoria e Limpeza de Rastreamento Google Ads & Facebook Pixel (v4)
+- [x] Criar arquivo centralizado `client/src/lib/gtag-tracking.ts` com funções de rastreamento
+- [x] Remover duplicação de `handleWhatsAppClick` de Navbar.tsx, Footer.tsx e ThankYou.tsx
+- [x] Importar `trackWhatsAppClick` do arquivo centralizado em todos os componentes
+- [x] Mover disparo de conversão de lead para `completeLead.onSuccess` em HeroSection.tsx
+- [x] Remover disparo de conversão no `useEffect` de ThankYou.tsx (evitar duplicação)
+- [x] Adicionar Facebook Pixel no `client/index.html` com inicialização e PageView
+- [x] Integrar `trackFacebookLead()` no disparo de conversão bem-sucedida
+- [x] Atualizar testes Vitest para refletir nova arquitetura (submitInitial sem webhooks)
+- [x] Validar que conversão dispara APENAS após sucesso comprovado do formulário
+- [x] Executar testes: 17/17 passando

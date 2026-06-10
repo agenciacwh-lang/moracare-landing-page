@@ -1,12 +1,6 @@
 import { Instagram, Facebook, Mail, Phone, MapPin, Clock, Heart } from "lucide-react";
 
-const handleWhatsAppClick = () => {
-  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
-    (window as any).gtag("event", "conversion", {
-      send_to: "AW-18008620159/7b2QCPb1ybccEP_4lotD",
-    });
-  }
-};
+import { trackWhatsAppClick } from "@/lib/gtag-tracking";
 
 const socialLinks = [
   { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/moracare.saude/" },
@@ -124,7 +118,7 @@ export default function Footer() {
                   href="https://wa.me/5541991916738?text=Ol%C3%A1%2C+vim+pelo+o+site+quero+mais+informa%C3%A7%C3%B5es%21"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={handleWhatsAppClick}
+                  onClick={trackWhatsAppClick}
                   className="flex items-start gap-3 text-sm transition-colors duration-200"
                   style={{ color: "rgba(255,255,255,0.65)" }}
                   onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#83d6d3")}
