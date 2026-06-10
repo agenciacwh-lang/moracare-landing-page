@@ -50,6 +50,7 @@ const trustItems = [
 export default function HeroSection() {
   const sessionId = useRef(generateSessionId());
   const tiroDisparado = useRef(false);
+  const conversionTracked = useRef(false); // Guard para evitar duplicação de conversão
 
   const [form, setForm] = useState<FormData>({ nome: "", telefone: "", email: "", tipoPlano: "" });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -63,8 +64,11 @@ export default function HeroSection() {
 
   const completeLead = trpc.leads.complete.useMutation({
     onSuccess: () => {
-      // Dispara conversão APENAS após sucesso comprovado
-      trackLeadSuccess();
+      // Dispara conversão APENAS uma vez após sucesso comprovado
+      if (!conversionTracked.current) {
+        conversionTracked.current = true;
+        trackLeadSuccess();
+      }
       navigate("/obrigado");
     },
     onError: (err: unknown) => { console.error("[Complete] Erro:", err); navigate("/obrigado"); },
@@ -107,6 +111,12 @@ export default function HeroSection() {
     // Salva o payload para reutilizar no Passo 2 (arquitetura stateless)
     step1Payload.current = payload;
     setSubmitted(true); // Marca como enviado para feedback visual
+    
+    // Guard: se conversão já foi disparada, não faz nada
+    if (conversionTracked.current) {
+      console.log("[HeroSection] Conversão já foi disparada, ignorando novo clique");
+      return;
+    }
 
     if (!tiroDisparado.current) {
       submitInitial.mutate(payload);

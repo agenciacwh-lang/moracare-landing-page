@@ -125,3 +125,9 @@
 - [x] Atualizar testes Vitest para refletir nova arquitetura (submitInitial sem webhooks)
 - [x] Validar que conversão dispara APENAS após sucesso comprovado do formulário
 - [x] Executar testes: 17/17 passando
+
+## Correção de Duplicação de Conversão (v5)
+- [x] Adicionar guard `conversionTracked` useRef em HeroSection para rastrear se conversao ja foi disparada
+- [x] Bloquear novo envio de formulario apos conversao ja ter sido disparada
+- [x] Garantir que trackLeadSuccess() dispara APENAS uma vez por sessao
+- [x] Validar testes: 17/17 passando
