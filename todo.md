@@ -131,3 +131,11 @@
 - [x] Bloquear novo envio de formulario apos conversao ja ter sido disparada
 - [x] Garantir que trackLeadSuccess() dispara APENAS uma vez por sessao
 - [x] Validar testes: 17/17 passando
+
+## Integração de Logos das Operadoras (v6)
+- [x] Upload das 5 logos das operadoras via manus-upload-file --webdev
+- [x] Refatorar OperatorsSection.tsx: remover cards com abreviaturas
+- [x] Exibir logos reais das operadoras em grid responsivo (2 cols mobile / 3 tablet / 5 desktop)
+- [x] Adicionar efeito hover com shadow nos cards de operadoras
+- [x] Validar build Vite sem erros
+- [x] Executar testes: 17/17 passando

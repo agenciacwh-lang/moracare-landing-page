@@ -1,12 +1,11 @@
 import { Building2 } from "lucide-react";
 
 const operators = [
-  { name: "Hapvida",        abbr: "HAP", desc: "Maior rede própria do Brasil" },
-  { name: "Unimed",         abbr: "UNI", desc: "Cooperativa médica líder" },
-  { name: "Amil",           abbr: "AMI", desc: "Cobertura nacional ampla" },
-  { name: "SulAmérica",     abbr: "SUL", desc: "Tradição e solidez" },
-  { name: "Bradesco Saúde", abbr: "BRA", desc: "Referência em qualidade" },
-  { name: "E muito mais...", abbr: "+",  desc: "Trabalhamos com todas as operadoras do mercado" },
+  { name: "Hapvida",        logo: "/manus-storage/2025_24_02_19_33_420cd0eb8e85496c4dd6941ad7beca97b1_317310ea.png" },
+  { name: "Unimed",         logo: "/manus-storage/unimed-logo-png_seeklogo-270753_1ff62743.png" },
+  { name: "Amil",           logo: "/manus-storage/logo-amil-1024_4f028566.png" },
+  { name: "SulAmérica",     logo: "/manus-storage/Logo_SulAmerica_RGB-scaled_9251665d.webp" },
+  { name: "Bradesco Saúde", logo: "/manus-storage/bradesco-saude-logo-3-1_765064e8.png" },
 ];
 
 const hospitals = [
@@ -55,28 +54,26 @@ export default function OperatorsSection() {
           </p>
         </div>
 
-        {/* Grid de operadoras */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
-          {operators.map((op, i) => {
-            const isExtra = op.abbr === "+";
-            return (
-              <div
-                key={op.name}
-                className="benefit-card flex flex-col items-center text-center gap-3 py-7"
-                style={isExtra ? { borderColor: "#83d6d3", background: "linear-gradient(135deg,#f0f9ff,#e0f2fe)" } : {}}
-              >
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-lg tracking-wider"
-                  style={{ background: isExtra ? "#83d6d3" : (i % 2 === 0 ? "#4a87b9" : "#2d6a9f"), color: isExtra ? "#1e4d6b" : "#ffffff" }}
-                >
-                  {op.abbr}
-                </div>
-                <p className="font-semibold text-sm" style={{ color: isExtra ? "#1e4d6b" : "#1e293b" }}>{op.name}</p>
-                <p className="text-xs" style={{ color: "#475569" }}>{op.desc}</p>
-                <div className="w-8 h-0.5 rounded-full" style={{ background: "#83d6d3" }} />
+        {/* Grid de operadoras com logos */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
+          {operators.map((op) => (
+            <div
+              key={op.name}
+              className="benefit-card flex flex-col items-center text-center gap-3 py-8 px-4 hover:shadow-lg transition-shadow duration-300"
+              style={{ borderColor: "#e2e8f0", background: "#ffffff" }}
+            >
+              <div className="w-full h-20 flex items-center justify-center">
+                <img
+                  src={op.logo}
+                  alt={op.name}
+                  loading="lazy"
+                  className="max-w-full max-h-full object-contain"
+                  style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.05))" }}
+                />
               </div>
-            );
-          })}
+              <p className="font-semibold text-sm" style={{ color: "#1e293b" }}>{op.name}</p>
+            </div>
+          ))}
         </div>
 
         <hr className="divider-teal mb-16" />
@@ -92,7 +89,7 @@ export default function OperatorsSection() {
             <span style={{ color: "#4a87b9" }}>em Curitiba e Região</span>
           </h3>
           <p className="text-sm max-w-lg mx-auto" style={{ color: "#475569" }}>
-            Sua cobertura inclui acesso às melhores unidades hospitalares da região.
+            Sua cobertura inclui acesso às melhores unidades hospitalares da região metropolitana de Curitiba.
           </p>
         </div>
 
