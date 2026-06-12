@@ -56,24 +56,40 @@ export default function OperatorsSection() {
 
         {/* Grid de operadoras com logos */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
-          {operators.map((op) => (
-            <div
-              key={op.name}
-              className="benefit-card flex flex-col items-center text-center gap-3 py-8 px-4 hover:shadow-lg transition-shadow duration-300"
-              style={{ borderColor: "#e2e8f0", background: "#ffffff" }}
-            >
-              <div className="w-full h-20 flex items-center justify-center">
-                <img
-                  src={op.logo}
-                  alt={op.name}
-                  loading="lazy"
-                  className="max-w-full max-h-full object-contain"
-                  style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.05))" }}
-                />
+          {operators.map((op) => {
+            // Logos pequenas (Hapvida, Unimed, Amil) recebem altura maior para proporcionalidade
+            const isSmallLogo = ["Hapvida", "Unimed", "Amil"].includes(op.name);
+            const logoHeight = isSmallLogo ? "h-32" : "h-20";
+            
+            return (
+              <div
+                key={op.name}
+                className="benefit-card flex flex-col items-center text-center gap-3 py-8 px-4 hover:shadow-lg transition-shadow duration-300"
+                style={{ borderColor: "#e2e8f0", background: "#ffffff" }}
+              >
+                <div className={`w-full ${logoHeight} flex items-center justify-center`}>
+                  <img
+                    src={op.logo}
+                    alt={op.name}
+                    loading="lazy"
+                    className="max-w-full max-h-full object-contain"
+                    style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.05))" }}
+                  />
+                </div>
               </div>
-              <p className="font-semibold text-sm" style={{ color: "#1e293b" }}>{op.name}</p>
-            </div>
-          ))}
+            );
+          })}
+          {/* Card adicional - Todas as operadoras */}
+          <div
+            className="benefit-card flex flex-col items-center justify-center text-center gap-3 py-8 px-4 hover:shadow-lg transition-shadow duration-300"
+            style={{ borderColor: "#83d6d3", background: "linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)" }}
+          >
+            <p className="font-semibold text-sm" style={{ color: "#1e4d6b" }}>
+              Trabalhamos com todas as operadoras do mercado
+            </p>
+            <div className="w-12 h-0.5 rounded-full" style={{ background: "#83d6d3" }} />
+            <p className="text-xs" style={{ color: "#64748b" }}>E muito mais...</p>
+          </div>
         </div>
 
         <hr className="divider-teal mb-16" />
