@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { CNPJMEIPopup } from "./components/CNPJMEIPopup";
 import Home from "./pages/Home";
 import ThankYou from "./pages/ThankYou";
 
@@ -34,6 +35,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
+          <CNPJMEIPopup />
           <Router />
         </TooltipProvider>
       </ThemeProvider>
