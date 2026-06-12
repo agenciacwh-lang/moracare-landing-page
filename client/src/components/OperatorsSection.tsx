@@ -1,11 +1,11 @@
 import { Building2 } from "lucide-react";
 
 const operators = [
-  { name: "Hapvida",        logo: "/manus-storage/2025_24_02_19_33_420cd0eb8e85496c4dd6941ad7beca97b1_317310ea.png" },
-  { name: "Unimed",         logo: "/manus-storage/unimed-logo-png_seeklogo-270753_1ff62743.png" },
-  { name: "Amil",           logo: "/manus-storage/logo-amil-1024_4f028566.png" },
-  { name: "SulAmérica",     logo: "/manus-storage/Logo_SulAmerica_RGB-scaled_9251665d.webp" },
-  { name: "Bradesco Saúde", logo: "/manus-storage/bradesco-saude-logo-3-1_765064e8.png" },
+  { name: "Hapvida",        logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/KqUdrfZLaHsjvMzY.png" },
+  { name: "Unimed",         logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/ebVLnuxpWCdrmOtY.png" },
+  { name: "Amil",           logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/yMZZBtAVmDpEZiDg.png" },
+  { name: "SulAmérica",     logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/GPlCxorcMsntaAhr.webp" },
+  { name: "Bradesco Saúde", logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/LvrpbxCoZwHNuEAf.png" },
 ];
 
 const hospitals = [
