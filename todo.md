@@ -141,13 +141,13 @@
 - [x] Executar testes: 17/17 passando
 
 ## Popup CNPJ/MEI (v7)
-- [ ] Criar componente `CNPJMEIPopup.tsx` com mensagem e dois botões
-- [ ] Implementar lógica de exibição do popup (primeira visita ou após delay)
-- [ ] Botão "QUERO ECONOMIZAR ATÉ 30%" → WhatsApp com mensagem empresarial
-- [ ] Botão "QUERO CONTRATAR COMO PESSOA FÍSICA" → WhatsApp com mensagem pessoal
-- [ ] Integrar popup no App.tsx
-- [ ] Adicionar estilos com Tailwind (modal, backdrop, animação de entrada)
-- [ ] Testar funcionamento dos links WhatsApp
-- [ ] Validar responsividade mobile/desktop
-- [ ] Executar testes Vitest
-- [ ] Fazer commit e push para GitHub
+- [x] Criar componente `CNPJMEIPopup.tsx` com mensagem e dois botões
+- [x] Implementar lógica de exibição do popup (primeira visita ou após delay)
+- [x] Botão "QUERO ECONOMIZAR ATÉ 30%" → WhatsApp com mensagem empresarial
+- [x] Botão "QUERO CONTRATAR COMO PESSOA FÍSICA" → WhatsApp com mensagem pessoal
+- [x] Integrar popup no App.tsx
+- [x] Adicionar estilos com Tailwind (modal, backdrop, animação de entrada)
+- [x] Testar funcionamento dos links WhatsApp
+- [x] Validar responsividade mobile/desktop
+- [x] Executar testes Vitest
+- [x] Fazer commit e push para GitHub
