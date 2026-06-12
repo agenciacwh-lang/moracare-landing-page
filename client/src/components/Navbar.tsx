@@ -20,13 +20,13 @@ export default function Navbar() {
       }}
     >
       <div className="container">
-        <nav className="flex items-center justify-between h-16 md:h-20">
+        <nav className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <a href="#" className="flex items-center gap-1.5">
             <img
               src="/moracare-logo.jpeg"
               alt="MoraCare Saúde e Benefícios"
-              className="h-10 md:h-12 w-auto object-contain rounded"
+              className="h-14 md:h-16 w-auto object-contain rounded"
               style={{ filter: "brightness(1.05) drop-shadow(0 1px 3px rgba(0,0,0,0.20))" }}
             />
           </a>
