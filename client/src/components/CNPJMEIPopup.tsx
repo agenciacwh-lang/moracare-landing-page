@@ -39,123 +39,122 @@ export function CNPJMEIPopup() {
       />
 
       {/* Modal Premium */}
-      <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-        <div className="bg-gradient-to-br from-white via-blue-50 to-white rounded-3xl shadow-2xl max-w-lg w-full animate-in fade-in zoom-in duration-500 overflow-hidden border border-blue-100">
+      <div className="fixed inset-0 flex items-center justify-center z-50 p-4 pt-24">
+        <div className="bg-gradient-to-br from-white via-blue-50 to-white rounded-3xl shadow-2xl max-w-sm w-full animate-in fade-in zoom-in duration-500 overflow-hidden border border-blue-100">
           
           {/* Header com gradiente */}
-          <div className="relative bg-gradient-to-r from-blue-600 via-blue-500 to-teal-500 px-8 py-10 overflow-hidden">
+          <div className="relative bg-gradient-to-r from-blue-600 via-blue-500 to-teal-500 px-6 py-8 overflow-hidden">
             {/* Decoração de fundo */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
             
             {/* Conteúdo do header */}
-            <div className="relative z-10 flex justify-between items-start mb-4">
-              <div className="flex items-center gap-3">
-                <div className="bg-white/20 p-3 rounded-xl backdrop-blur-sm">
-                  <TrendingUp className="w-6 h-6 text-white" />
-                </div>
-                <h2 className="text-3xl font-bold text-white leading-tight">
-                  Economize<br />até 30%
+            <div className="relative z-10 flex justify-between items-start">
+              <div className="flex-1">
+                <p className="text-white/90 text-xs font-medium mb-2">
+                  Oferta Especial
+                </p>
+                <h2 className="text-2xl font-bold text-white leading-tight mb-3">
+                  Possui CNPJ ou MEI?
                 </h2>
+                <p className="text-white/80 text-xs">
+                  Economize até 30%
+                </p>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-white/80 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
+                className="text-white/80 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-lg flex-shrink-0"
               >
-                <X size={24} />
+                <X size={20} />
               </button>
             </div>
-            
-            <p className="text-white/90 text-sm font-medium relative z-10">
-              Possui CNPJ ou MEI?
-            </p>
           </div>
 
           {/* Conteúdo principal */}
-          <div className="px-8 py-8 space-y-6">
+          <div className="px-6 py-6 space-y-4">
             
             {/* Mensagem principal */}
-            <div className="space-y-2">
-              <p className="text-gray-800 font-semibold text-lg">
-                Contrate seu plano de saúde com desconto especial
+            <div className="space-y-1">
+              <p className="text-gray-800 font-semibold text-base">
+                Plano de saúde com desconto especial
               </p>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Acesso às melhores operadoras do mercado com preços exclusivos para CNPJ e MEI
+              <p className="text-gray-600 text-xs leading-relaxed">
+                Acesso às melhores operadoras com preços exclusivos
               </p>
             </div>
 
             {/* Benefícios em grid */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl border border-green-100">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-3 rounded-lg border border-green-100">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900 text-sm">Mensalidades</p>
-                    <p className="text-xs text-gray-600">Mais acessíveis</p>
+                    <p className="font-semibold text-gray-900 text-xs">Mensalidades</p>
+                    <p className="text-xs text-gray-600">Acessíveis</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl border border-blue-100">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-3 rounded-lg border border-blue-100">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900 text-sm">Cobertura</p>
+                    <p className="font-semibold text-gray-900 text-xs">Cobertura</p>
                     <p className="text-xs text-gray-600">Completa</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-xl border border-purple-100">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-3 rounded-lg border border-purple-100">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900 text-sm">Opções</p>
-                    <p className="text-xs text-gray-600">Empresa e MEI</p>
+                    <p className="font-semibold text-gray-900 text-xs">Opções</p>
+                    <p className="text-xs text-gray-600">Empresa/MEI</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-4 rounded-xl border border-orange-100">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+              <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-3 rounded-lg border border-orange-100">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900 text-sm">Cotação</p>
-                    <p className="text-xs text-gray-600">Rápida e grátis</p>
+                    <p className="font-semibold text-gray-900 text-xs">Cotação</p>
+                    <p className="text-xs text-gray-600">Rápida/Grátis</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Selo de confiança */}
-            <div className="bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-100 rounded-xl p-4 flex items-center gap-3">
-              <Users className="w-5 h-5 text-blue-600 flex-shrink-0" />
+            <div className="bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-100 rounded-lg p-3 flex items-center gap-2">
+              <Users className="w-4 h-4 text-blue-600 flex-shrink-0" />
               <div>
-                <p className="font-semibold text-gray-900 text-sm">+500 famílias já economizaram</p>
+                <p className="font-semibold text-gray-900 text-xs">+500 famílias economizaram</p>
                 <p className="text-xs text-gray-600">com a Mora Care</p>
               </div>
             </div>
 
             {/* Botões de ação */}
-            <div className="space-y-3 pt-2">
+            <div className="space-y-2 pt-1">
               <button
                 onClick={handleBusinessClick}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group text-sm"
               >
-                <Zap className="w-5 h-5 group-hover:animate-pulse" />
-                QUERO ECONOMIZAR ATÉ 30%
+                <Zap className="w-4 h-4 group-hover:animate-pulse" />
+                ECONOMIZAR ATÉ 30%
               </button>
               <button
                 onClick={handlePersonalClick}
-                className="w-full bg-white border-2 border-blue-500 text-blue-600 hover:bg-blue-50 font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105"
+                className="w-full bg-white border-2 border-blue-500 text-blue-600 hover:bg-blue-50 font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm"
               >
-                CONTRATAR COMO PESSOA FÍSICA
+                PESSOA FÍSICA
               </button>
             </div>
 
             {/* Rodapé */}
-            <p className="text-xs text-gray-500 text-center pt-2">
-              Cotação sem compromisso • Resposta em até 5 minutos
+            <p className="text-xs text-gray-500 text-center pt-1">
+              Sem compromisso • Resposta em 5 min
             </p>
           </div>
         </div>
