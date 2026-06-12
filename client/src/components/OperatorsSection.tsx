@@ -59,12 +59,15 @@ export default function OperatorsSection() {
           {operators.map((op) => {
             // Logos pequenas (Hapvida, Unimed, Amil) recebem altura maior para proporcionalidade
             const isSmallLogo = ["Hapvida", "Unimed", "Amil"].includes(op.name);
-            const logoHeight = isSmallLogo ? "h-32" : "h-20";
+            const logoHeight = isSmallLogo ? "h-32" : "h-24";
+            // Logos grandes (Bradesco, SulAmérica) precisam de mais espaço vertical
+            const isLargeLogo = ["Bradesco Saúde", "SulAmérica"].includes(op.name);
+            const containerHeight = isLargeLogo ? "min-h-40" : "";
             
             return (
               <div
                 key={op.name}
-                className="benefit-card flex flex-col items-center text-center gap-3 py-8 px-4 hover:shadow-lg transition-shadow duration-300"
+                className={`benefit-card flex flex-col items-center justify-center text-center gap-3 py-8 px-4 hover:shadow-lg transition-shadow duration-300 ${containerHeight}`}
                 style={{ borderColor: "#e2e8f0", background: "#ffffff" }}
               >
                 <div className={`w-full ${logoHeight} flex items-center justify-center`}>
