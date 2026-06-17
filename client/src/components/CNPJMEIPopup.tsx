@@ -18,15 +18,30 @@ export function CNPJMEIPopup() {
 
   if (!isOpen) return null;
 
+  const gtag_report_conversion = (url?: string) => {
+    const callback = function () {
+      if (typeof url !== 'undefined') {
+        window.location.href = url;
+      }
+    };
+    (window as any).gtag('event', 'conversion', {
+      'send_to': 'AW-18008620159/7b2QCPb1ybccEP_4lotD',
+      'event_callback': callback
+    });
+    return false;
+  };
+
   const handleBusinessClick = () => {
     const message = encodeURIComponent('Quero contratar meu plano empresarial com até 30% de desconto!');
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    gtag_report_conversion(whatsappUrl);
     setIsOpen(false);
   };
 
   const handlePersonalClick = () => {
     const message = encodeURIComponent('Olá, vim pelo o site quero mais informações!');
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    gtag_report_conversion(whatsappUrl);
     setIsOpen(false);
   };
 
