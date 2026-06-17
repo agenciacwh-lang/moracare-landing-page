@@ -39,8 +39,8 @@ export function CNPJMEIPopup() {
       />
 
       {/* Modal Premium */}
-      <div className="fixed inset-0 flex items-center justify-center z-50 p-4 pt-24">
-        <div className="bg-gradient-to-br from-white via-blue-50 to-white rounded-3xl shadow-2xl max-w-sm w-full animate-in fade-in zoom-in duration-500 overflow-hidden border border-blue-100">
+      <div className="fixed inset-0 flex items-center justify-center z-50 px-4 py-8 overflow-y-auto">
+        <div className="bg-gradient-to-br from-white via-blue-50 to-white rounded-3xl shadow-2xl w-full max-w-sm my-auto animate-in fade-in zoom-in duration-500 overflow-hidden border border-blue-100">
           
           {/* Header com gradiente */}
           <div className="relative bg-gradient-to-r from-blue-600 via-blue-500 to-teal-500 px-6 py-8 overflow-hidden">
