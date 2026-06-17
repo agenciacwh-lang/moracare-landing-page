@@ -34,12 +34,12 @@ export function CNPJMEIPopup() {
     <>
       {/* Backdrop com blur */}
       <div
-        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity duration-300"
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[999] transition-opacity duration-300"
         onClick={() => setIsOpen(false)}
       />
 
       {/* Modal Premium */}
-      <div className="fixed inset-0 flex items-center justify-center z-50 px-4 py-8 overflow-y-auto">
+      <div className="fixed inset-0 flex items-center justify-center z-[9999] px-4 py-8 overflow-y-auto">
         <div className="bg-gradient-to-br from-white via-blue-50 to-white rounded-3xl shadow-2xl w-full max-w-sm my-auto animate-in fade-in zoom-in duration-500 overflow-hidden border border-blue-100">
           
           {/* Header com gradiente */}
