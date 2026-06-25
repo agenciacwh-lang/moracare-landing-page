@@ -48,5 +48,41 @@
       defer
       src="%VITE_ANALYTICS_ENDPOINT%/umami"
       data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    
+    <!-- Google Ads Enhanced Conversions (Dados Fornecidos pelo Usuário) -->
+    <script>
+      // Pega o formulário pelo ID
+      var formLead = document.getElementById('formulario');
+
+      if(formLead) {
+        formLead.addEventListener('submit', function(event) {
+          
+          // 1. Captura os dados exatos digitados pelo usuário
+          var emailDigitado = document.getElementById('email').value.trim();
+          var telefoneDigitado = document.getElementById('telefone').value.trim();
+
+          // 2. Limpeza e formatação do telefone (Padrão exigido pelo Google)
+          var telefoneLimpo = telefoneDigitado.replace(/\D/g, ''); 
+
+          // Verifica se o lead digitou o DDD. Se tiver 10 ou 11 números, adiciona o +55
+          if (telefoneLimpo.length >= 10 && !telefoneLimpo.startsWith('55')) {
+            telefoneLimpo = '+55' + telefoneLimpo;
+          } else if (telefoneLimpo.startsWith('55')) {
+            telefoneLimpo = '+' + telefoneLimpo;
+          }
+
+          // 3. Envia os dados para a variável user_data do Google Ads
+          gtag('set', 'user_data', {
+            "email": emailDigitado,
+            "phone_number": telefoneLimpo
+          });
+          
+          console.log('[Enhanced Conversions] Dados enviados:', {
+            email: emailDigitado,
+            phone_number: telefoneLimpo
+          });
+        });
+      }
+    </script>
   </body>
 </html>
