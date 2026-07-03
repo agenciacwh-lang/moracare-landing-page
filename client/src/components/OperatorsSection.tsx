@@ -55,7 +55,7 @@ export default function OperatorsSection() {
         </div>
 
         {/* Grid de operadoras com logos */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 mb-16">
           {operators.map((op) => (
             <div
               key={op.name}
@@ -64,12 +64,12 @@ export default function OperatorsSection() {
             >
               {/* Faixa de logo padronizada: mesma altura para todas as marcas,
                   object-contain preserva a proporção e max-w evita logos largas gigantes */}
-              <div className="w-full h-10 md:h-12 flex items-center justify-center">
+              <div className="w-full h-20 md:h-24 flex items-center justify-center">
                 <img
                   src={op.logo}
                   alt={op.name}
                   loading="lazy"
-                  className="max-h-full max-w-[80%] object-contain"
+                  className="max-h-full max-w-[85%] object-contain"
                   style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.05))" }}
                 />
               </div>
