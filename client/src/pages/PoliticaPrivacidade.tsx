@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { ArrowLeft, ShieldCheck } from "lucide-react";
 
 const WA_LINK = "https://wa.me/5541991916738";
-const EMAIL = "contato@kplemcorretora.com.br";
+const EMAIL = "contato@Moracare.com.br";
 
 type Block =
   | { type: "p"; text: ReactNode }

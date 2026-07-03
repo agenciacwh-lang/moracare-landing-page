@@ -131,14 +131,14 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contato@kplemcorretora.com.br"
+                  href="mailto:contato@Moracare.com.br"
                   className="flex items-start gap-3 text-sm transition-colors duration-200"
                   style={{ color: "rgba(255,255,255,0.65)" }}
                   onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#83d6d3")}
                   onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)")}
                 >
                   <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#83d6d3" }} />
-                  contato@kplemcorretora.com.br
+                  contato@Moracare.com.br
                 </a>
               </li>
               <li>
