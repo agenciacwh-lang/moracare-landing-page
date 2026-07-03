@@ -56,32 +56,25 @@ export default function OperatorsSection() {
 
         {/* Grid de operadoras com logos */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
-          {operators.map((op) => {
-            // Logos pequenas (Hapvida, Unimed, Amil) recebem altura maior para proporcionalidade
-            const isSmallLogo = ["Hapvida", "Unimed", "Amil"].includes(op.name);
-            const logoHeight = isSmallLogo ? "h-32" : "h-24";
-            // Logos grandes (Bradesco, SulAmérica) precisam de mais espaço vertical
-            const isLargeLogo = ["Bradesco Saúde", "SulAmérica"].includes(op.name);
-            const containerHeight = isLargeLogo ? "min-h-40" : "";
-            
-            return (
-              <div
-                key={op.name}
-                className={`benefit-card flex flex-col items-center justify-center text-center gap-3 py-8 px-4 hover:shadow-lg transition-shadow duration-300 ${containerHeight}`}
-                style={{ borderColor: "#e2e8f0", background: "#ffffff" }}
-              >
-                <div className={`w-full ${logoHeight} flex items-center justify-center`}>
-                  <img
-                    src={op.logo}
-                    alt={op.name}
-                    loading="lazy"
-                    className="max-w-full max-h-full object-contain"
-                    style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.05))" }}
-                  />
-                </div>
+          {operators.map((op) => (
+            <div
+              key={op.name}
+              className="benefit-card flex items-center justify-center text-center py-8 px-4 hover:shadow-lg transition-shadow duration-300"
+              style={{ borderColor: "#e2e8f0", background: "#ffffff" }}
+            >
+              {/* Faixa de logo padronizada: mesma altura para todas as marcas,
+                  object-contain preserva a proporção e max-w evita logos largas gigantes */}
+              <div className="w-full h-10 md:h-12 flex items-center justify-center">
+                <img
+                  src={op.logo}
+                  alt={op.name}
+                  loading="lazy"
+                  className="max-h-full max-w-[80%] object-contain"
+                  style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.05))" }}
+                />
               </div>
-            );
-          })}
+            </div>
+          ))}
           {/* Card adicional - Todas as operadoras */}
           <div
             className="benefit-card flex flex-col items-center justify-center text-center gap-3 py-8 px-4 hover:shadow-lg transition-shadow duration-300"

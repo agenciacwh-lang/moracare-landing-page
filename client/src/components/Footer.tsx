@@ -165,6 +165,22 @@ export default function Footer() {
       {/* Rodapé inferior */}
       <div style={{ borderTop: "1px solid rgba(131,214,211,0.12)" }}>
         <div className="container py-5">
+          {/* Aviso legal — canal de captação independente */}
+          <div className="mb-4 pb-4" style={{ borderBottom: "1px solid rgba(131,214,211,0.10)" }}>
+            <p
+              className="text-[11px] leading-relaxed text-center md:text-left"
+              style={{ color: "rgba(255,255,255,0.38)" }}
+            >
+              A Mora Care esclarece que não somos a operadora oficial, mas sim uma página de captação
+              gerida por corretores de planos de saúde independentes e autorizados.
+            </p>
+            <p
+              className="text-[11px] mt-1.5 font-medium text-center md:text-left"
+              style={{ color: "rgba(255,255,255,0.45)" }}
+            >
+              Registro SUSEP nº 251170551
+            </p>
+          </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <p className="text-xs text-center md:text-left" style={{ color: "rgba(255,255,255,0.40)" }}>
               © {currentYear} Moracare Saúde e Benefícios — CNPJ 57.047.541/0001-92. Todos os direitos reservados.
