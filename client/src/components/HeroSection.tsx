@@ -11,6 +11,7 @@ interface FormData {
   telefone: string;
   email: string;
   tipoPlano: TipoPlano | "";
+  aceite: boolean;
 }
 
 interface FormErrors {
@@ -18,6 +19,7 @@ interface FormErrors {
   telefone?: string;
   email?: string;
   tipoPlano?: string;
+  aceite?: string;
 }
 
 function generateSessionId(): string {
@@ -38,6 +40,7 @@ function validate(data: FormData): FormErrors {
   if (!data.telefone || data.telefone.replace(/\D/g, "").length < 8) errors.telefone = "Informe um telefone válido";
   if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = "Informe um e-mail válido";
   if (!data.tipoPlano) errors.tipoPlano = "Selecione o tipo de plano";
+  if (!data.aceite) errors.aceite = "Você precisa aceitar a Política de Privacidade e os Termos de Uso";
   return errors;
 }
 
@@ -52,7 +55,7 @@ export default function HeroSection() {
   const tiroDisparado = useRef(false);
   const conversionTracked = useRef(false); // Guard para evitar duplicação de conversão
 
-  const [form, setForm] = useState<FormData>({ nome: "", telefone: "", email: "", tipoPlano: "" });
+  const [form, setForm] = useState<FormData>({ nome: "", telefone: "", email: "", tipoPlano: "", aceite: false });
   const [errors, setErrors] = useState<FormErrors>({});
   const [, navigate] = useLocation();
   const [submitted, setSubmitted] = useState(false);
@@ -87,8 +90,14 @@ export default function HeroSection() {
   });
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    const newValue = name === "telefone" ? formatPhone(value) : value;
+    const target = e.target;
+    const { name, value } = target;
+    const newValue =
+      target instanceof HTMLInputElement && target.type === "checkbox"
+        ? target.checked
+        : name === "telefone"
+          ? formatPhone(value)
+          : value;
     setForm((prev) => ({ ...prev, [name]: newValue }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   }, []);
@@ -295,6 +304,36 @@ export default function HeroSection() {
                           Ocorreu um erro. Por favor, tente novamente.
                         </p>
                       )}
+
+                      {/* Consentimento LGPD (obrigatório) */}
+                      <div className="pt-1">
+                        <div className="flex items-start gap-2.5">
+                          <input
+                            id="aceite" name="aceite" type="checkbox"
+                            checked={form.aceite} onChange={handleChange}
+                            aria-invalid={!!errors.aceite}
+                            className="mt-0.5 h-4 w-4 flex-shrink-0 cursor-pointer accent-[#abba3b]"
+                          />
+                          <label htmlFor="aceite" className="text-xs leading-relaxed cursor-pointer" style={{ color: "#475569" }}>
+                            Li e aceito a{" "}
+                            <a
+                              href="/politica-de-privacidade" target="_blank" rel="noopener noreferrer"
+                              className="font-semibold underline" style={{ color: "#2d6a9f" }}
+                            >
+                              Política de Privacidade
+                            </a>{" "}
+                            e os{" "}
+                            <a
+                              href="/termos-de-uso" target="_blank" rel="noopener noreferrer"
+                              className="font-semibold underline" style={{ color: "#2d6a9f" }}
+                            >
+                              Termos de Uso
+                            </a>
+                            .
+                          </label>
+                        </div>
+                        {errors.aceite && <p className="mt-1 text-xs text-red-500">{errors.aceite}</p>}
+                      </div>
 
                       {/* Botão CTA verde */}
                       <button
