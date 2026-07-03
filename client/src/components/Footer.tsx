@@ -1,4 +1,5 @@
 import { Instagram, Facebook, Mail, Phone, MapPin, Clock, Heart } from "lucide-react";
+import { Link } from "wouter";
 
 import { trackWhatsAppClick } from "@/lib/gtag-tracking";
 
@@ -15,9 +16,9 @@ const quickLinks = [
 ];
 
 const legalLinks = [
-  { label: "Política de Privacidade", href: "#" },
-  { label: "Termos de Uso",           href: "#" },
-  { label: "LGPD",                    href: "#" },
+  { label: "Política de Privacidade", href: "/politica-de-privacidade" },
+  { label: "Termos de Uso",           href: "/termos-de-uso" },
+  { label: "LGPD",                    href: "/politica-de-privacidade" },
 ];
 
 export default function Footer() {
@@ -170,7 +171,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-5">
               {legalLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="text-xs transition-colors duration-200"
@@ -179,7 +180,7 @@ export default function Footer() {
                   onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.40)")}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
             <p className="text-xs flex items-center gap-1" style={{ color: "rgba(255,255,255,0.30)" }}>
