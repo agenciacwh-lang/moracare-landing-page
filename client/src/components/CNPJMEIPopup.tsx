@@ -32,7 +32,7 @@ export function CNPJMEIPopup() {
   };
 
   const handleBusinessClick = () => {
-    const message = encodeURIComponent('Quero contratar meu plano empresarial com até 30% de desconto!');
+    const message = encodeURIComponent('Quero aproveitar as condições especiais para pessoa jurídica');
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
     gtag_report_conversion(whatsappUrl);
     setIsOpen(false);
@@ -73,7 +73,7 @@ export function CNPJMEIPopup() {
                   Possui CNPJ ou MEI?
                 </h2>
                 <p className="text-white/80 text-xs">
-                  Economize até 30%
+                  Condições Especiais
                 </p>
               </div>
               <button
@@ -157,7 +157,7 @@ export function CNPJMEIPopup() {
                 className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group text-sm"
               >
                 <Zap className="w-4 h-4 group-hover:animate-pulse" />
-                ECONOMIZAR ATÉ 30%
+                POSSUO CNPJ/MEI!
               </button>
               <button
                 onClick={handlePersonalClick}
