@@ -5,12 +5,12 @@
 
 /**
  * Dispara evento de conversão de lead (apenas após sucesso do formulário)
- * Send_to: PHnvCN3244ccEP_4lotD (Conversão - Mora Care)
+ * Send_to: YmFPCPGN5c8cEM2sxZxE (Conversão - Mora Care)
  */
 export function trackLeadConversion() {
   if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
     (window as any).gtag("event", "conversion", {
-      send_to: "AW-18008620159/PHnvCN3244ccEP_4lotD",
+      send_to: "AW-18313467469/YmFPCPGN5c8cEM2sxZxE",
       value: 1.0,
       currency: "BRL",
     });
@@ -19,12 +19,12 @@ export function trackLeadConversion() {
 
 /**
  * Dispara evento de clique no WhatsApp (não é conversão, apenas rastreamento)
- * Send_to: 7b2QCPb1ybccEP_4lotD (Clique WhatsApp)
+ * Send_to: 2IpECI_i5s8cEM2sxZxE (Clique WhatsApp)
  */
 export function trackWhatsAppClick() {
   if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
     (window as any).gtag("event", "conversion", {
-      send_to: "AW-18008620159/7b2QCPb1ybccEP_4lotD",
+      send_to: "AW-18313467469/2IpECI_i5s8cEM2sxZxE",
     });
   }
 }

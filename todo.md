@@ -151,3 +151,11 @@
 - [x] Validar responsividade mobile/desktop
 - [x] Executar testes Vitest
 - [x] Fazer commit e push para GitHub
+
+## Atualização de Tags Google Ads (v8)
+- [ ] Atualizar client/index.html: substituir AW-18008620159 por AW-18313467469
+- [ ] Atualizar client/src/lib/gtag-tracking.ts: novos IDs de conversão (YmFPCPGN5c8cEM2sxZxE, 2IpECI_i5s8cEM2sxZxE)
+- [ ] Atualizar client/src/components/CNPJMEIPopup.tsx: novo ID de conversão
+- [ ] Atualizar client/src/components/HeroSection.tsx: novo ID de conversão se necessário
+- [ ] Executar build Vite e testes Vitest
+- [ ] Fazer commit e push para GitHub
