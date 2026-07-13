@@ -25,7 +25,7 @@ export function CNPJMEIPopup() {
       }
     };
     (window as any).gtag('event', 'conversion', {
-      'send_to': 'AW-18313467469/YmFPCPGN5c8cEM2sxZxE',
+      'send_to': 'AW-18313467469/2IpECI_i5s8cEM2sxZxE',
       'event_callback': callback
     });
     return false;
