@@ -151,3 +151,9 @@
 - [x] Validar responsividade mobile/desktop
 - [x] Executar testes Vitest
 - [x] Fazer commit e push para GitHub
+
+## Atualização de Webhook BotConversa (v9)
+- [x] Atualizar BOTCONVERSA_WEBHOOK_URL para nova URL
+- [x] URL: https://new-backend.botconversa.com.br/api/v1/webhooks-automation/catch/195822/ee3Rb4UcQTBa/
+- [x] Validar build e testes (17/17 passando)
+- [x] Push para GitHub
