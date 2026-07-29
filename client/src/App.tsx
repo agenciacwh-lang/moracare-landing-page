@@ -7,6 +7,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { CNPJMEIPopup } from "./components/CNPJMEIPopup";
 import Home from "./pages/Home";
 import ThankYou from "./pages/ThankYou";
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
+import TermosUso from "./pages/TermosUso";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -14,6 +16,8 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/obrigado"} component={ThankYou} />
+      <Route path={"/politica-de-privacidade"} component={PoliticaPrivacidade} />
+      <Route path={"/termos-de-uso"} component={TermosUso} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
