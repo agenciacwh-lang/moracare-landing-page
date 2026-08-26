@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Wilker Tatuador — Tatuagens autorais em realismo, fineline e blackwork</title>
-<meta name="description" content="Tatuagens autorais com acabamento de estúdio: realismo preto e cinza, fineline, blackwork e cobertura. Orçamento pelo WhatsApp em até 15 minutos." />
+<title>Wilker Tatuador — Tatuagem minimalista e fineline autoral</title>
+<meta name="description" content="Tatuagem minimalista, fineline, escrita e ornamental delicado — desenho autoral feito do zero para a sua pele. Orçamento pelo WhatsApp em até 15 minutos." />
 <meta name="theme-color" content="#0a0a0b" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -304,6 +304,28 @@ section{position:relative}
   aspect-ratio:4/5;background:linear-gradient(160deg,#1b1b21,#0b0b0d);
   display:grid;place-items:center;box-shadow:var(--shadow);
 }
+/* ── Fotos reais (drop-in): basta salvar os arquivos na pasta fotos/ ── */
+.photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;
+  opacity:0;transition:opacity .7s var(--ease),transform .9s var(--ease);
+}
+.photo.loaded{opacity:1}
+.tile:hover .photo.loaded{transform:scale(1.06)}
+.tile-meta,.ba-label,.ba-handle,.portrait-badge,.badge-float{z-index:4}
+.studio-grid .ph-box{position:relative;overflow:hidden}
+.portrait .ph,.ph-box .ph{position:relative;z-index:1}
+
+/* ── Feed do Instagram (posts reais, carregados no navegador do visitante) ── */
+.ig-grid{
+  display:grid;gap:18px;justify-content:center;
+  grid-template-columns:repeat(auto-fit,minmax(290px,460px));
+}
+.ig-card{
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;
+  background:#fff;box-shadow:var(--shadow);width:100%;max-width:460px;margin-inline:auto;
+}
+.ig-card iframe{display:block;width:100%;height:600px;border:0}
+[hidden]{display:none !important}
 .ph{display:grid;place-items:center;gap:10px;color:#4b4741;text-align:center;padding:20px}
 .ph svg{width:40px;height:40px}
 .ph span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
@@ -583,7 +605,7 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
     <nav class="nav-links">
       <a href="#estilos">Estilos</a>
       <a href="#portfolio">Portfólio</a>
-      <a href="#cobertura">Cobertura</a>
+      <a href="#durabilidade">Durabilidade</a>
       <a href="#processo">Como funciona</a>
       <a href="#estudio">Estúdio</a>
       <a href="#faq">Dúvidas</a>
@@ -600,12 +622,12 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
   <div class="glow" style="width:520px;height:520px;top:-140px;right:-120px"></div>
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Tatuador autoral · Curitiba — PR</span>
-      <h1>Uma tattoo bem feita<span>dura a vida inteira.</span></h1>
+      <span class="eyebrow">Tatuagem minimalista · traço autoral</span>
+      <h1>Minimalista hoje.<span>Impecável em 20 anos.</span></h1>
       <p class="lead">
-        Projeto exclusivo, desenhado do zero para a sua pele — realismo preto e cinza, fineline,
-        blackwork e cobertura de tatuagens antigas. Sem cópia de referência da internet,
-        sem improviso e sem surpresa no preço.
+        Traço fino, símbolos e escritas desenhados do zero para a sua pele — com a profundidade
+        e a espessura certas para o traço não borrar com o tempo. Sem cópia de referência da
+        internet, sem improviso e sem surpresa no preço.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="#agendar" data-wa>
@@ -624,9 +646,9 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
     </div>
 
     <div class="stack">
-      <div class="plate plate-a"><svg class="art"><use href="#m-serpente"/></svg></div>
-      <div class="plate plate-b"><svg class="art"><use href="#m-rosa"/></svg></div>
-      <div class="plate plate-c"><svg class="art"><use href="#m-mandala"/></svg></div>
+      <div class="plate plate-a"><img class="photo" src="fotos/hero-01.jpg" alt="Tatuagem fineline no braço" loading="lazy"><svg class="art"><use href="#m-serpente"/></svg></div>
+      <div class="plate plate-b"><img class="photo" src="fotos/hero-02.jpg" alt="Tatuagem minimalista no antebraço" loading="lazy"><svg class="art"><use href="#m-rosa"/></svg></div>
+      <div class="plate plate-c"><img class="photo" src="fotos/hero-03.jpg" alt="Tatuagem ornamental delicada" loading="lazy"><svg class="art"><use href="#m-mandala"/></svg></div>
       <div class="badge-float">
         <span class="stars">
           <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
@@ -660,25 +682,25 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
     <div class="styles">
       <article class="style-card reveal">
         <span class="tag">mais pedido</span>
-        <svg class="art"><use href="#m-olho"/></svg>
-        <h3>Realismo preto e cinza</h3>
-        <p>Retratos, olhos, animais e composições com profundidade real — luz, sombra e textura construídas em camadas.</p>
+        <svg class="art"><use href="#m-lua"/></svg>
+        <h3>Minimalista</h3>
+        <p>Símbolos pequenos, limpos e discretos — feitos com o traço na espessura certa para não engordar nem borrar com os anos.</p>
       </article>
       <article class="style-card reveal">
-        <svg class="art"><use href="#m-borboleta"/></svg>
+        <svg class="art"><use href="#m-rosa"/></svg>
         <h3>Fineline</h3>
-        <p>Traço fino e delicado, ideal para primeira tatuagem, braço, costela e nuca. Discreto sem perder presença.</p>
+        <p>Traço fino e delicado, ideal para primeira tatuagem: braço, costela, clavícula e nuca. Discreto sem perder presença.</p>
       </article>
       <article class="style-card reveal">
-        <svg class="art"><use href="#m-adaga"/></svg>
-        <h3>Blackwork</h3>
-        <p>Preto sólido, ornamental e geométrico. Peças fechadas de braço, perna e costas com desenho pensado para o corpo.</p>
+        <svg class="art"><use href="#m-letter"/></svg>
+        <h3>Escrita e lettering</h3>
+        <p>Frases, nomes e datas com caligrafia desenhada à mão e adaptada ao lugar do corpo — legível hoje e daqui a vinte anos.</p>
       </article>
       <article class="style-card reveal">
         <span class="tag">especialidade</span>
         <svg class="art"><use href="#m-mandala"/></svg>
-        <h3>Cobertura e reforma</h3>
-        <p>Aquela tattoo de que você se arrependeu vira uma peça nova, sem sombra do desenho antigo aparecendo.</p>
+        <h3>Ornamental delicado</h3>
+        <p>Mandalas, pontilhismo e ornamentos finos que acompanham o desenho do corpo — presença sem peso visual.</p>
       </article>
     </div>
   </div>
@@ -695,33 +717,33 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
 
     <div class="filters reveal">
       <button class="chip active" data-filter="all">Todos</button>
-      <button class="chip" data-filter="realismo">Realismo</button>
+      <button class="chip" data-filter="minimalista">Minimalista</button>
       <button class="chip" data-filter="fineline">Fineline</button>
-      <button class="chip" data-filter="blackwork">Blackwork</button>
-      <button class="chip" data-filter="cobertura">Cobertura</button>
+      <button class="chip" data-filter="escrita">Escrita</button>
+      <button class="chip" data-filter="ornamental">Ornamental</button>
     </div>
 
     <div class="gallery" id="gallery">
-      <figure class="tile reveal" data-cat="realismo"><svg class="art"><use href="#m-olho"/></svg>
-        <figcaption class="tile-meta"><b>Olho realista</b><small>Antebraço · 4h</small></figcaption></figure>
-      <figure class="tile reveal" data-cat="blackwork"><svg class="art"><use href="#m-serpente"/></svg>
-        <figcaption class="tile-meta"><b>Serpente ornamental</b><small>Braço · 6h</small></figcaption></figure>
-      <figure class="tile reveal" data-cat="fineline"><svg class="art"><use href="#m-borboleta"/></svg>
-        <figcaption class="tile-meta"><b>Borboleta fineline</b><small>Costela · 2h</small></figcaption></figure>
-      <figure class="tile reveal" data-cat="cobertura"><svg class="art"><use href="#m-mandala"/></svg>
-        <figcaption class="tile-meta"><b>Mandala cover-up</b><small>Ombro · 5h</small></figcaption></figure>
-      <figure class="tile reveal" data-cat="blackwork"><svg class="art"><use href="#m-adaga"/></svg>
-        <figcaption class="tile-meta"><b>Adaga tradicional</b><small>Panturrilha · 3h</small></figcaption></figure>
-      <figure class="tile reveal" data-cat="fineline"><svg class="art"><use href="#m-rosa"/></svg>
-        <figcaption class="tile-meta"><b>Rosa delicada</b><small>Antebraço · 3h</small></figcaption></figure>
-      <figure class="tile reveal" data-cat="realismo"><svg class="art"><use href="#m-ampulheta"/></svg>
-        <figcaption class="tile-meta"><b>Ampulheta sombreada</b><small>Braço · 5h</small></figcaption></figure>
-      <figure class="tile reveal" data-cat="fineline"><svg class="art"><use href="#m-lua"/></svg>
-        <figcaption class="tile-meta"><b>Fases da lua</b><small>Coluna · 2h</small></figcaption></figure>
-      <figure class="tile reveal" data-cat="blackwork"><svg class="art"><use href="#m-geo"/></svg>
-        <figcaption class="tile-meta"><b>Paisagem geométrica</b><small>Braço · 4h</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="minimalista"><img class="photo" src="fotos/portfolio-01.jpg" alt="Fases da lua — Coluna · 1h30" loading="lazy"><svg class="art"><use href="#m-lua"/></svg>
+        <figcaption class="tile-meta"><b>Fases da lua</b><small>Coluna · 1h30</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="fineline"><img class="photo" src="fotos/portfolio-02.jpg" alt="Rosa fineline — Antebraço · 2h" loading="lazy"><svg class="art"><use href="#m-rosa"/></svg>
+        <figcaption class="tile-meta"><b>Rosa fineline</b><small>Antebraço · 2h</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="escrita"><img class="photo" src="fotos/portfolio-03.jpg" alt="Escrita autoral — Clavícula · 1h" loading="lazy"><svg class="art"><use href="#m-letter"/></svg>
+        <figcaption class="tile-meta"><b>Escrita autoral</b><small>Clavícula · 1h</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="ornamental"><img class="photo" src="fotos/portfolio-04.jpg" alt="Mandala pontilhada — Ombro · 4h" loading="lazy"><svg class="art"><use href="#m-mandala"/></svg>
+        <figcaption class="tile-meta"><b>Mandala pontilhada</b><small>Ombro · 4h</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="minimalista"><img class="photo" src="fotos/portfolio-05.jpg" alt="Formas geométricas — Braço · 1h" loading="lazy"><svg class="art"><use href="#m-geo"/></svg>
+        <figcaption class="tile-meta"><b>Formas geométricas</b><small>Braço · 1h</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="fineline"><img class="photo" src="fotos/portfolio-06.jpg" alt="Borboleta traço fino — Costela · 2h" loading="lazy"><svg class="art"><use href="#m-borboleta"/></svg>
+        <figcaption class="tile-meta"><b>Borboleta traço fino</b><small>Costela · 2h</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="ornamental"><img class="photo" src="fotos/portfolio-07.jpg" alt="Olho ornamental — Antebraço · 3h" loading="lazy"><svg class="art"><use href="#m-olho"/></svg>
+        <figcaption class="tile-meta"><b>Olho ornamental</b><small>Antebraço · 3h</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="minimalista"><img class="photo" src="fotos/portfolio-08.jpg" alt="Ampulheta mínima — Punho · 1h30" loading="lazy"><svg class="art"><use href="#m-ampulheta"/></svg>
+        <figcaption class="tile-meta"><b>Ampulheta mínima</b><small>Punho · 1h30</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="fineline"><img class="photo" src="fotos/portfolio-09.jpg" alt="Serpente fineline — Braço · 3h" loading="lazy"><svg class="art"><use href="#m-serpente"/></svg>
+        <figcaption class="tile-meta"><b>Serpente fineline</b><small>Braço · 3h</small></figcaption></figure>
     </div>
-    <p class="gallery-note">As artes acima são placeholders de linha — troque cada bloco pelas fotos reais do portfólio.</p>
+    <p class="gallery-note">As artes de linha são placeholders: salve as fotos reais em <code>fotos/portfolio-01.jpg</code> … <code>portfolio-09.jpg</code> e elas entram sozinhas no lugar.</p>
 
     <div class="center" style="margin-top:44px">
       <a class="btn btn-ghost" href="https://instagram.com/wilker_tatuador" target="_blank" rel="noopener">
@@ -731,26 +753,43 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
   </div>
 </section>
 
-<!-- ══════════ Antes e depois ══════════ -->
-<section class="section" id="cobertura">
+<!-- ══════════ Feed real do Instagram ══════════ -->
+<section class="section" id="feed" hidden>
   <div class="wrap">
     <div class="head center reveal">
-      <span class="eyebrow">Cobertura de tatuagem</span>
-      <h2>Arrependimento tem conserto</h2>
-      <p class="lead" style="margin-inline:auto">Arraste para ver o antes e o depois. Cobertura bem planejada não “esconde” o desenho velho — ela transforma o espaço em uma peça nova.</p>
+      <span class="eyebrow">Direto do Instagram</span>
+      <h2>Últimas publicações</h2>
+      <p class="lead" style="margin-inline:auto">Posts reais do @wilker_tatuador, carregados direto do Instagram no navegador de quem visita.</p>
+    </div>
+    <div class="ig-grid" id="igGrid"></div>
+    <div class="center" style="margin-top:36px">
+      <a class="btn btn-ghost" href="https://instagram.com/wilker_tatuador" target="_blank" rel="noopener">
+        <svg><use href="#i-ig"/></svg> Ver o perfil completo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ Antes e depois ══════════ -->
+<section class="section" id="durabilidade">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">Traço fino borra?</span>
+      <h2>Recém-feita x um ano depois</h2>
+      <p class="lead" style="margin-inline:auto">Arraste para comparar. Traço fino só engorda quando é feito fundo demais ou com agulha errada — feito na profundidade certa, ele cicatriza fino e continua fino.</p>
     </div>
 
     <div class="ba-wrap reveal" id="ba" style="--pos:52%">
-      <div class="ba-side ba-before"><svg class="art"><use href="#m-letter"/></svg></div>
-      <div class="ba-side ba-after"><svg class="art"><use href="#m-rosa"/></svg></div>
-      <span class="ba-label l">Antes</span>
-      <span class="ba-label r">Depois</span>
+      <div class="ba-side ba-before"><img class="photo" src="fotos/traco-recem-feita.jpg" alt="Tatuagem recém-feita" loading="lazy"><svg class="art"><use href="#m-letter"/></svg></div>
+      <div class="ba-side ba-after"><img class="photo" src="fotos/traco-cicatrizada.jpg" alt="A mesma tatuagem um ano depois, cicatrizada" loading="lazy"><svg class="art"><use href="#m-rosa"/></svg></div>
+      <span class="ba-label l">Recém-feita</span>
+      <span class="ba-label r">1 ano depois</span>
       <div class="ba-handle" id="ba-handle" role="slider" aria-label="Comparar antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52" tabindex="0"></div>
     </div>
 
     <div class="center" style="margin-top:40px">
-      <a class="btn btn-primary" href="#agendar" data-wa><svg><use href="#i-wa"/></svg> Enviar foto da minha tattoo antiga</a>
-      <p class="muted" style="font-size:.84rem;margin-top:14px">Análise de cobertura gratuita — mando o parecer no mesmo dia.</p>
+      <a class="btn btn-primary" href="#agendar" data-wa><svg><use href="#i-wa"/></svg> Quero ver mais peças cicatrizadas</a>
+      <p class="muted" style="font-size:.84rem;margin-top:14px">Mando fotos de peças cicatrizadas de 1, 3 e 5 anos — e o guia de cuidados que uso com meus clientes.</p>
     </div>
   </div>
 </section>
@@ -759,6 +798,7 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
 <section class="section" id="sobre" style="background:linear-gradient(180deg,#0a0a0b,#0e0e11 50%,#0a0a0b)">
   <div class="wrap about">
     <div class="portrait reveal">
+      <img class="photo" src="fotos/sobre.jpg" alt="Wilker tatuando no estúdio" loading="lazy">
       <div class="ph"><svg><use href="#i-cam"/></svg><span>Foto do Wilker tatuando</span></div>
       <div class="portrait-badge"><b>WILKER</b><small>Tatuador desde 2017</small></div>
     </div>
@@ -816,13 +856,13 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
       </article>
       <article class="review reveal">
         <span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-        <p>“Carreguei uma tattoo malfeita por 8 anos. Ele cobriu com uma peça que hoje é a que mais elogiam em mim. Vale cada centavo e cada hora de sessão.”</p>
-        <div class="review-who"><span class="avatar">RM</span><span><b>Rafael M.</b><small>Cobertura · ombro</small></span></div>
+        <p>“Queria uma frase pequena na clavícula e tinha medo de ficar borrado. Um ano depois o traço continua exatamente igual ao do dia que fiz.”</p>
+        <div class="review-who"><span class="avatar">RM</span><span><b>Rafael M.</b><small>Escrita · clavícula</small></span></div>
       </article>
       <article class="review reveal">
         <span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
         <p>“Estúdio impecável, material aberto na minha frente e o desenho autoral ficou melhor que a referência que levei. Já marquei a segunda sessão.”</p>
-        <div class="review-who"><span class="avatar">TA</span><span><b>Thiago A.</b><small>Blackwork · braço fechado</small></span></div>
+        <div class="review-who"><span class="avatar">TA</span><span><b>Thiago A.</b><small>Ornamental · antebraço</small></span></div>
       </article>
     </div>
   </div>
@@ -832,16 +872,16 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
 <section class="section" id="estudio">
   <div class="wrap studio">
     <div class="studio-grid reveal">
-      <div class="ph-box"><div class="ph"><svg><use href="#i-cam"/></svg><span>Foto ampla do estúdio</span></div></div>
-      <div class="ph-box"><div class="ph"><svg><use href="#i-cam"/></svg><span>Bancada e material</span></div></div>
-      <div class="ph-box"><div class="ph"><svg><use href="#i-cam"/></svg><span>Recepção</span></div></div>
+      <div class="ph-box"><img class="photo" src="fotos/estudio-01.jpg" alt="Vista ampla do estúdio" loading="lazy"><div class="ph"><svg><use href="#i-cam"/></svg><span>Foto ampla do estúdio</span></div></div>
+      <div class="ph-box"><img class="photo" src="fotos/estudio-02.jpg" alt="Bancada com material descartável" loading="lazy"><div class="ph"><svg><use href="#i-cam"/></svg><span>Bancada e material</span></div></div>
+      <div class="ph-box"><img class="photo" src="fotos/estudio-03.jpg" alt="Recepção do estúdio" loading="lazy"><div class="ph"><svg><use href="#i-cam"/></svg><span>Recepção</span></div></div>
     </div>
     <div class="reveal">
       <span class="eyebrow">O estúdio</span>
       <h2>Limpo, privativo<br>e só seu no horário</h2>
       <p class="lead" style="margin-top:20px">Um cliente por vez, ambiente climatizado, som na sua playlist e acompanhante liberado. Nada de fila e nada de pressa.</p>
       <ul class="info">
-        <li><svg><use href="#i-pin"/></svg><span><b>Rua Exemplo, 000 — Bairro, Curitiba/PR</b><span>Estacionamento na porta · a 5 min do centro</span></span></li>
+        <li><svg><use href="#i-pin"/></svg><span><b>Rua Exemplo, 000 — Bairro, sua cidade/UF</b><span>Estacionamento na porta · a 5 min do centro</span></span></li>
         <li><svg><use href="#i-clock"/></svg><span><b>Segunda a sábado, 10h às 20h</b><span>Atendimento somente com hora marcada</span></span></li>
         <li><svg><use href="#i-card"/></svg><span><b>Pix, débito e crédito em até 6x</b><span>Sinal de reserva abatido do valor final</span></span></li>
       </ul>
@@ -864,8 +904,8 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
         <p>Incomoda, mas é suportável — e varia muito por região do corpo. Trabalho com pausas sempre que você precisar e, em peças longas, uso pomada anestésica de uso tópico quando indicado.</p></details>
       <details><summary>Preciso pagar sinal para agendar?</summary>
         <p>Sim. O sinal reserva a sua data, cobre o tempo de criação do desenho exclusivo e é integralmente abatido do valor final da tattoo.</p></details>
-      <details><summary>Você cobre tatuagem antiga?</summary>
-        <p>Cubro. Mande uma foto nítida da tattoo atual em luz natural e eu avalio gratuitamente se dá para cobrir direto ou se vale uma ou duas sessões de clareamento antes.</p></details>
+      <details><summary>Tatuagem de traço fino borra ou some com o tempo?</summary>
+        <p>Borra quando é feita fundo demais, com agulha grossa ou em lugar de muito atrito. Eu escolho a espessura e a profundidade pensando na cicatrização e te oriento sobre o melhor local do corpo para aquele desenho — e o retoque em 90 dias é gratuito.</p></details>
       <details><summary>Como é o cuidado depois?</summary>
         <p>Você sai com um guia de cicatrização e um pomada indicada. Nos primeiros 7 dias eu acompanho pelo WhatsApp e, se a cicatrização pedir, o retoque em até 90 dias é gratuito.</p></details>
       <details><summary>Posso levar meu próprio desenho?</summary>
@@ -897,7 +937,7 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
       <div>
         <a class="brand" href="#topo"><span class="brand-mark">W</span>
           <span class="brand-txt"><span class="brand-name">WILKER</span><span class="brand-sub">Tatuador</span></span></a>
-        <p class="muted" style="margin-top:18px;font-size:.9rem;max-width:34ch">Tatuagens autorais em Curitiba. Realismo, fineline, blackwork e cobertura — com material descartável e desenho exclusivo.</p>
+        <p class="muted" style="margin-top:18px;font-size:.9rem;max-width:34ch">Tatuagem minimalista, fineline, escrita e ornamental delicado — desenho autoral e material descartável, com hora marcada.</p>
         <div class="socials">
           <a href="https://instagram.com/wilker_tatuador" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
           <a href="#" data-wa aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
@@ -908,7 +948,7 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
         <ul>
           <li><a href="#estilos">Estilos</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#cobertura">Cobertura</a></li>
+          <li><a href="#durabilidade">Durabilidade</a></li>
           <li><a href="#processo">Como funciona</a></li>
           <li><a href="#faq">Dúvidas</a></li>
         </ul>
@@ -917,7 +957,7 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:64px 0 1
         <h4>Contato</h4>
         <ul>
           <li><a href="#" data-wa>(41) 90000-0000</a></li>
-          <li>Rua Exemplo, 000 — Curitiba/PR</li>
+          <li>Rua Exemplo, 000 — sua cidade/UF</li>
           <li>Seg a sáb · 10h às 20h</li>
           <li>Atendimento com hora marcada</li>
         </ul>
@@ -988,6 +1028,38 @@ document.querySelectorAll(".chip").forEach(chip => {
     });
   });
 });
+
+/* ═══════════ Fotos reais: aparecem sozinhas quando existem em fotos/ ═══════════ */
+const galNote = document.querySelector(".gallery-note");
+document.querySelectorAll("img.photo").forEach(img => {
+  const ok   = () => {
+    img.classList.add("loaded");
+    if (galNote && img.closest("#gallery")) galNote.hidden = true;   // já tem foto real
+  };
+  const fail = () => img.remove();                 // sem foto: fica o desenho de linha
+  img.addEventListener("load", ok);
+  img.addEventListener("error", fail);
+  if (img.complete) img.naturalWidth ? ok() : fail();
+});
+
+/* ═══════════ Feed do Instagram ═══════════
+   Cole aqui o código de cada post (o trecho depois de /p/ no link).
+   Ex.: https://www.instagram.com/p/CfnD7xSM9N5/  →  "CfnD7xSM9N5"
+   Lista vazia = a seção some da página.                                        */
+const INSTAGRAM_POSTS = [
+  "CfnD7xSM9N5"
+];
+(() => {
+  if (!INSTAGRAM_POSTS.length) return;
+  const sec = document.getElementById("feed");
+  const grid = document.getElementById("igGrid");
+  grid.innerHTML = INSTAGRAM_POSTS.map(code =>
+    `<div class="ig-card reveal"><iframe src="https://www.instagram.com/p/${code}/embed/captioned"` +
+    ` loading="lazy" scrolling="no" title="Publicação de @wilker_tatuador no Instagram"></iframe></div>`
+  ).join("");
+  sec.hidden = false;
+  grid.querySelectorAll(".reveal").forEach(el => io.observe(el));
+})();
 
 /* ═══════════ Comparador antes / depois ═══════════ */
 (() => {
