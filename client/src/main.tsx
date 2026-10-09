@@ -37,9 +37,10 @@ queryClient.getMutationCache().subscribe(event => {
   }
 });
 
-// O domínio oficial (moracare.com.br) é hospedado na Hostinger, que só serve arquivos estáticos.
-// Lá, o formulário envia para a API que roda na Vercel.
-const API_ORIGIN = window.location.hostname.endsWith("moracare.com.br")
+// Os domínios oficiais (moracare.com.br e morastar.com.br) ficam na Hostinger, que só serve
+// arquivos estáticos. Lá, o formulário envia para a API que roda na Vercel.
+const STATIC_HOSTS = ["moracare.com.br", "morastar.com.br"];
+const API_ORIGIN = STATIC_HOSTS.some(h => window.location.hostname.endsWith(h))
   ? "https://moracare-landing-page.vercel.app"
   : "";
 

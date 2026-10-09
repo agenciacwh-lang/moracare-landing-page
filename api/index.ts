@@ -31,10 +31,12 @@ const app = express();
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
-// CORS: o site oficial (Hostinger) chama esta API a partir de outro domínio
+// CORS: os sites oficiais (Hostinger) chamam esta API a partir de outro domínio
 const ALLOWED_ORIGINS = new Set([
   "https://moracare.com.br",
   "https://www.moracare.com.br",
+  "https://morastar.com.br",
+  "https://www.morastar.com.br",
 ]);
 app.use((req: Request, res: Response, next: NextFunction) => {
   const origin = req.headers.origin;
