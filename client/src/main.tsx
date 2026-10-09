@@ -37,10 +37,16 @@ queryClient.getMutationCache().subscribe(event => {
   }
 });
 
+// O domínio oficial (moracare.com.br) é hospedado na Hostinger, que só serve arquivos estáticos.
+// Lá, o formulário envia para a API que roda na Vercel.
+const API_ORIGIN = window.location.hostname.endsWith("moracare.com.br")
+  ? "https://moracare-landing-page.vercel.app"
+  : "";
+
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: "/api/trpc",
+      url: `${API_ORIGIN}/api/trpc`,
       transformer: superjson,
       fetch(input, init) {
         return globalThis.fetch(input, {
