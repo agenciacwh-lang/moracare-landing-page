@@ -183,7 +183,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <p className="text-xs text-center md:text-left" style={{ color: "rgba(255,255,255,0.40)" }}>
-              © {currentYear} Moracare Saúde e Benefícios — CNPJ 57.047.541/0001-92. Todos os direitos reservados.
+              © {currentYear} KPLEM CORRETORA DE SEGUROS LTDA — CNPJ 57.047.541/0001-92. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-5">
               {legalLinks.map((link) => (

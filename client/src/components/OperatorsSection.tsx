@@ -1,11 +1,11 @@
 import { Building2 } from "lucide-react";
 
 const operators = [
-  { name: "Hapvida",        logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/KqUdrfZLaHsjvMzY.png" },
-  { name: "Unimed",         logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/ebVLnuxpWCdrmOtY.png" },
-  { name: "Amil",           logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/yMZZBtAVmDpEZiDg.png" },
-  { name: "SulAmérica",     logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/GPlCxorcMsntaAhr.webp" },
-  { name: "Bradesco Saúde", logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663616331473/LvrpbxCoZwHNuEAf.png" },
+  { name: "Hapvida",        logo: "/operadoras/hapvida.png" },
+  { name: "Unimed",         logo: "/operadoras/unimed.png" },
+  { name: "Amil",           logo: "/operadoras/amil.png" },
+  { name: "SulAmérica",     logo: "/operadoras/sulamerica.webp" },
+  { name: "Bradesco Saúde", logo: "/operadoras/bradesco-saude.png" },
 ];
 
 const hospitals = [
